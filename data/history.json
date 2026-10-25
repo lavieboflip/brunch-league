@@ -1,0 +1,410 @@
+{
+ "seasons": [
+  {
+   "season": 4,
+   "dates": "June – August 2026",
+   "champion": "Sarah",
+   "final": [
+    {
+     "name": "Sarah",
+     "pts": 213
+    },
+    {
+     "name": "Brittany",
+     "pts": 189
+    },
+    {
+     "name": "Sam H.",
+     "pts": 177
+    },
+    {
+     "name": "Whitney T.",
+     "pts": 161
+    },
+    {
+     "name": "Jasmine G.",
+     "pts": 157
+    },
+    {
+     "name": "Dingess",
+     "pts": 155
+    },
+    {
+     "name": "Miranda B.",
+     "pts": 149
+    },
+    {
+     "name": "Alec L.",
+     "pts": 143
+    },
+    {
+     "name": "Drew",
+     "pts": 111
+    },
+    {
+     "name": "Kent",
+     "pts": 95
+    }
+   ],
+   "note": "Final standings, top 10."
+  },
+  {
+   "season": 3,
+   "dates": "March – May 2026",
+   "champion": "Alec L.",
+   "final": [
+    {
+     "name": "Alec L.",
+     "pts": null
+    },
+    {
+     "name": "Sam H.",
+     "pts": null
+    },
+    {
+     "name": "Sarah",
+     "pts": null
+    },
+    {
+     "name": "Whitney T.",
+     "pts": null
+    },
+    {
+     "name": "Hunter H.",
+     "pts": null
+    }
+   ],
+   "note": "Final top 5 as announced (points weren't posted).",
+   "before": [
+    {
+     "name": "Whitney T.",
+     "pts": 146
+    },
+    {
+     "name": "Alec L.",
+     "pts": 135
+    },
+    {
+     "name": "Dingess",
+     "pts": 119
+    },
+    {
+     "name": "John L.",
+     "pts": 112
+    },
+    {
+     "name": "Hunter H.",
+     "pts": 111
+    },
+    {
+     "name": "Jim D.",
+     "pts": 94
+    },
+    {
+     "name": "Sarah",
+     "pts": 93
+    },
+    {
+     "name": "Brittany",
+     "pts": 82
+    },
+    {
+     "name": "Sam H.",
+     "pts": 76
+    },
+    {
+     "name": "Alena D.",
+     "pts": 72
+    },
+    {
+     "name": "Caitlin S.",
+     "pts": 62
+    },
+    {
+     "name": "Aaron Z.",
+     "pts": 53
+    },
+    {
+     "name": "Fraiser",
+     "pts": 50
+    },
+    {
+     "name": "Donovan B.",
+     "pts": 48
+    },
+    {
+     "name": "Jasmine G.",
+     "pts": 43
+    },
+    {
+     "name": "Jaimee S.",
+     "pts": 32
+    },
+    {
+     "name": "Lenard",
+     "pts": 32
+    },
+    {
+     "name": "Rachel",
+     "pts": 29
+    },
+    {
+     "name": "Mereb",
+     "pts": 25
+    },
+    {
+     "name": "Kent",
+     "pts": 21
+    },
+    {
+     "name": "Conrad S.",
+     "pts": 18
+    }
+   ],
+   "beforeNote": "Standings going into the finale"
+  },
+  {
+   "season": 2,
+   "dates": "September – December 2025",
+   "champion": "Caitlin S.",
+   "final": [
+    {
+     "name": "Caitlin S.",
+     "pts": 324
+    },
+    {
+     "name": "Sarah",
+     "pts": 309
+    },
+    {
+     "name": "Aaron Z.",
+     "pts": 296
+    },
+    {
+     "name": "Miranda B.",
+     "pts": 259
+    },
+    {
+     "name": "David K.",
+     "pts": 250
+    },
+    {
+     "name": "Sam H.",
+     "pts": 242
+    },
+    {
+     "name": "Jasmine G.",
+     "pts": 241
+    },
+    {
+     "name": "Whitney T.",
+     "pts": 232
+    },
+    {
+     "name": "Jim D.",
+     "pts": 223
+    },
+    {
+     "name": "Chad",
+     "pts": 203
+    },
+    {
+     "name": "Anthony L.",
+     "pts": 174
+    },
+    {
+     "name": "Dingess",
+     "pts": 135
+    },
+    {
+     "name": "Fraiser",
+     "pts": 134
+    },
+    {
+     "name": "John L.",
+     "pts": 133
+    },
+    {
+     "name": "Donovan B.",
+     "pts": 130
+    }
+   ],
+   "note": "Final standings, top 15."
+  },
+  {
+   "season": 1,
+   "dates": "May – August 2025",
+   "champion": "Sam H.",
+   "final": [
+    {
+     "name": "Sam H.",
+     "pts": 392
+    },
+    {
+     "name": "David K.",
+     "pts": 365
+    }
+   ],
+   "note": "Final top 2 as announced. Season 1 counted your best 6 brunches.",
+   "before": [
+    {
+     "name": "Sam H.",
+     "pts": 324
+    },
+    {
+     "name": "David K.",
+     "pts": 310
+    },
+    {
+     "name": "Chad",
+     "pts": 294
+    },
+    {
+     "name": "Whitney T.",
+     "pts": 287
+    },
+    {
+     "name": "Sarah",
+     "pts": 275
+    },
+    {
+     "name": "Alec L.",
+     "pts": 212
+    },
+    {
+     "name": "Kent",
+     "pts": 198
+    },
+    {
+     "name": "Fraiser",
+     "pts": 190
+    },
+    {
+     "name": "Jasmine G.",
+     "pts": 179
+    },
+    {
+     "name": "Chelsea Z.",
+     "pts": 159
+    },
+    {
+     "name": "Aaron Z.",
+     "pts": 154
+    },
+    {
+     "name": "Drew",
+     "pts": 139
+    },
+    {
+     "name": "Miranda B.",
+     "pts": 99
+    },
+    {
+     "name": "Jim D.",
+     "pts": 85
+    },
+    {
+     "name": "Simara M.",
+     "pts": 69
+    },
+    {
+     "name": "Guy",
+     "pts": 59
+    },
+    {
+     "name": "Babs H.",
+     "pts": 56
+    },
+    {
+     "name": "Michelle",
+     "pts": 48
+    },
+    {
+     "name": "Kara K.",
+     "pts": 47
+    },
+    {
+     "name": "Eric C.",
+     "pts": 44
+    },
+    {
+     "name": "Gregg",
+     "pts": 41
+    },
+    {
+     "name": "Matt",
+     "pts": 33
+    },
+    {
+     "name": "Donovan B.",
+     "pts": 29
+    },
+    {
+     "name": "Lauren",
+     "pts": 29
+    },
+    {
+     "name": "Sam Also",
+     "pts": 27
+    },
+    {
+     "name": "Brandon C.",
+     "pts": 24
+    },
+    {
+     "name": "Jeremy L.",
+     "pts": 24
+    },
+    {
+     "name": "Carrie",
+     "pts": 23
+    },
+    {
+     "name": "Leah",
+     "pts": 23
+    },
+    {
+     "name": "Jill",
+     "pts": 21
+    },
+    {
+     "name": "Cheyenne",
+     "pts": 19
+    },
+    {
+     "name": "John M.",
+     "pts": 19
+    },
+    {
+     "name": "Tracey",
+     "pts": 19
+    },
+    {
+     "name": "Alena D.",
+     "pts": 17
+    },
+    {
+     "name": "Grace",
+     "pts": 17
+    },
+    {
+     "name": "Abby",
+     "pts": 11
+    },
+    {
+     "name": "David",
+     "pts": 8
+    },
+    {
+     "name": "Boyd",
+     "pts": 4
+    },
+    {
+     "name": "Isaac",
+     "pts": -30
+    }
+   ],
+   "beforeNote": "Standings through week 12, before the finale"
+  }
+ ]
+}

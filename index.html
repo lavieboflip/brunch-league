@@ -112,6 +112,13 @@ h2 { margin: 0; font: 900 28px/1 var(--display); text-transform: uppercase; lett
 .pts-pill.card { display: inline-flex; align-items: center; gap: 6px; background: var(--surface-2); font-size: 15px; }
 .rule-notes { margin: 0; padding: 12px 14px 14px 32px; border-top: 1px solid var(--line); display: grid; gap: 6px; }
 
+.past-row { display: grid; grid-template-columns: 2.2em minmax(0, 1fr) 5.2em; gap: 10px; align-items: center; padding: 8px 4px; border-bottom: 1px solid var(--line); }
+.past-row .rank { font-size: 22px; }
+.past-row.first .rank { color: var(--mimosa); }
+.past-row .top3 { font-size: 24px; }
+details.before summary { cursor: pointer; font-weight: 700; padding: 6px 0; }
+details.before[open] summary { margin-bottom: 6px; }
+
 @media (max-width: 520px) {
   .board-head, .board-row { grid-template-columns: 1.8em minmax(0, 1fr) 4.2em; }
   .season-h, .season { display: none; }
@@ -126,6 +133,7 @@ h2 { margin: 0; font: 900 28px/1 var(--display); text-transform: uppercase; lett
     <nav class="tabs" role="tablist" aria-label="Sections">
       <button role="tab" id="tab-standings" data-tab="standings" aria-selected="true">Standings</button>
       <button role="tab" id="tab-weeks" data-tab="weeks" aria-selected="false">Weekly scores</button>
+      <button role="tab" id="tab-past" data-tab="past" aria-selected="false">Past seasons</button>
       <button role="tab" id="tab-rules" data-tab="rules" aria-selected="false">Rules</button>
     </nav>
   </div>
@@ -149,6 +157,11 @@ h2 { margin: 0; font: 900 28px/1 var(--display); text-transform: uppercase; lett
       <div class="weekpick" id="weekPick" role="group" aria-label="Week"></div>
       <div id="weekList"></div>
     </div>
+  </section>
+
+  <section id="view-past" style="display:grid;gap:18px" hidden>
+    <div class="awards" id="champs"></div>
+    <div id="pastList" style="display:grid;gap:18px"><p class="empty">Loading past seasons…</p></div>
   </section>
 
   <section id="view-rules" hidden>
@@ -338,7 +351,40 @@ h2 { margin: 0; font: 900 28px/1 var(--display); text-transform: uppercase; lett
       }));
   }
 
-  const TABS = ["standings", "weeks", "rules"];
+  function pastTable(list, withPts) {
+    let rank = 0, prev = null;
+    return list.map((r, i) => {
+      if (!withPts || r.pts !== prev) rank = i + 1; prev = r.pts;
+      return h("div", { class: "past-row" + (rank === 1 ? " first" : "") },
+        h("span", { class: "rank num", text: rank }), h("span", { class: "pname", text: r.name }),
+        h("span", { class: "top3 num", text: withPts && r.pts != null ? fmt(r.pts) : "" }));
+    });
+  }
+
+  function renderPast(hist) {
+    const seasons = [...hist.seasons].sort((a, b) => b.season - a.season);
+    $("champs").replaceChildren(...seasons.map((s, i) => h("div", { class: "award" + (i === 0 ? " champ" : "") },
+      h("span", { class: "k", text: `Season ${s.season} Champion` }), h("span", { class: "who", text: s.champion }), h("span", { class: "why", text: s.dates }))));
+    $("pastList").replaceChildren(...seasons.map(s => {
+      const withPts = s.final.some(r => r.pts != null);
+      return h("div", { class: "panel" },
+        h("div", { class: "row spread" }, h("h2", { text: `Season ${s.season}` }), h("span", { class: "sub", style: "font-size:13px", text: s.dates })),
+        h("div", {}, pastTable(s.final, withPts)),
+        s.note ? h("p", { class: "sub", style: "font-size:13px", text: s.note }) : null,
+        s.before ? h("details", { class: "before" }, h("summary", { text: s.beforeNote || "Before the finale" }), pastTable(s.before, true)) : null);
+    }));
+  }
+
+  async function loadPast() {
+    try {
+      const r = await fetch("data/history.json?t=" + Date.now(), { cache: "no-store" });
+      if (!r.ok) throw new Error(r.status);
+      renderPast(await r.json());
+    } catch (e) { $("pastList").replaceChildren(h("p", { class: "empty", text: "Couldn't load past seasons. Refresh to try again." })); }
+  }
+  loadPast();
+
+  const TABS = ["standings", "weeks", "past", "rules"];
   function show(t) {
     tab = TABS.includes(t) ? t : "standings";
     for (const name of TABS) { $("view-" + name).hidden = name !== tab; $("tab-" + name).setAttribute("aria-selected", String(name === tab)); }
