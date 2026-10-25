@@ -119,6 +119,29 @@ h2 { margin: 0; font: 900 28px/1 var(--display); text-transform: uppercase; lett
 details.before summary { cursor: pointer; font-weight: 700; padding: 6px 0; }
 details.before[open] summary { margin-bottom: 6px; }
 
+button.wk { border: 0; font: inherit; font-size: 11px; cursor: pointer; }
+button.wk:hover, button.wk:focus-visible { outline: 2px solid var(--mimosa); outline-offset: 1px; }
+button.week-row { width: 100%; border: 0; border-bottom: 1px solid var(--line); background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+button.week-row:hover { background: var(--surface-2); }
+.hint { font-size: 13px; color: var(--muted); margin: 0; }
+
+dialog.detail { border: 0; border-radius: var(--radius); padding: 0; width: min(640px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); background: var(--surface); color: var(--ink); box-shadow: 0 20px 60px rgba(0,0,0,.35); }
+dialog.detail::backdrop { background: rgba(10, 20, 14, .6); }
+.detail-head { position: sticky; top: 0; display: flex; justify-content: space-between; align-items: start; gap: 12px; padding: 16px 18px 12px; background: var(--surface); border-bottom: 1px solid var(--line); }
+.detail-head h3 { margin: 0; font: 900 26px/1 var(--display); text-transform: uppercase; }
+.detail-head .sub { font-size: 13px; }
+.detail-close { flex: none; border: 1.5px solid var(--line); background: var(--surface); color: inherit; border-radius: 999px; width: 36px; height: 36px; font-size: 20px; line-height: 1; cursor: pointer; }
+.detail-body { padding: 14px 18px 18px; display: grid; gap: 14px; }
+.card-photos { display: grid; gap: 8px; }
+.card-photos a { display: block; border-radius: 8px; overflow: hidden; background: var(--surface-2); }
+.card-photos img { display: block; width: 100%; height: auto; max-height: 60dvh; object-fit: contain; }
+.tally { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.tally td { padding: 7px 4px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.tally td.how { color: var(--muted); font-size: 13px; }
+.tally td.pts { text-align: right; font-weight: 700; white-space: nowrap; }
+.tally tr.adj td { color: var(--red); }
+.tally tr.total td { border-bottom: 0; border-top: 2px solid var(--ink); font: 900 22px/1.1 var(--display); padding-top: 10px; }
+
 @media (max-width: 520px) {
   .board-head, .board-row { grid-template-columns: 1.8em minmax(0, 1fr) 4.2em; }
   .season-h, .season { display: none; }
@@ -132,7 +155,7 @@ details.before[open] summary { margin-bottom: 6px; }
     <h1>Brunch <span>League</span></h1>
     <nav class="tabs" role="tablist" aria-label="Sections">
       <button role="tab" id="tab-standings" data-tab="standings" aria-selected="true">Standings</button>
-      <button role="tab" id="tab-weeks" data-tab="weeks" aria-selected="false">Weekly scores</button>
+      <button role="tab" id="tab-weeks" data-tab="weeks" aria-selected="false">Points</button>
       <button role="tab" id="tab-past" data-tab="past" aria-selected="false">Past seasons</button>
       <button role="tab" id="tab-rules" data-tab="rules" aria-selected="false">Rules</button>
     </nav>
@@ -147,13 +170,15 @@ details.before[open] summary { margin-bottom: 6px; }
     <div class="panel">
       <div class="row spread"><h2>Standings</h2><span class="sub" style="font-size:13px">Ranked by your best 3 brunches</span></div>
       <div id="board"><p class="empty">Loading standings…</p></div>
+      <p class="hint">Tap a week to see that scorecard and the full points tally.</p>
       <p class="sub" style="font-size:13px">Scores update automatically when scorecards are posted in the GroupMe. Spot a mistake? Tell Dave.</p>
     </div>
   </section>
 
   <section id="view-weeks" hidden>
     <div class="panel">
-      <h2>Weekly scores</h2>
+      <h2>Points by week</h2>
+      <p class="hint">Tap anyone's score to see their scorecard and how every point was counted.</p>
       <div class="weekpick" id="weekPick" role="group" aria-label="Week"></div>
       <div id="weekList"></div>
     </div>
@@ -230,6 +255,14 @@ details.before[open] summary { margin-bottom: 6px; }
   </section>
 </main>
 
+<dialog class="detail" id="detail" aria-labelledby="detailTitle">
+  <div class="detail-head">
+    <div style="display:grid;gap:4px;min-width:0"><h3 id="detailTitle"></h3><p class="sub" id="detailSub"></p></div>
+    <button class="detail-close" id="detailClose" aria-label="Close">×</button>
+  </div>
+  <div class="detail-body" id="detailBody"></div>
+</dialog>
+
 <script>
 (() => {
   const FIELDS = [
@@ -239,25 +272,32 @@ details.before[open] summary { margin-bottom: 6px; }
     ["bars", "bars", "num"], ["yellowCards", "yellow cards", "num"], ["kickedOut", "kicked out", "bool"],
   ];
   const BONUS = new Set(["organized", "referrals", "holyGrail"]);
-  // "drinks" -> "drink", "shots bought" -> "shot bought", "referral" -> "referrals"
-  const plural = (label, count) => {
-    const [first, ...rest] = label.split(" ");
-    const base = first.endsWith("s") ? first.slice(0, -1) : first;
-    return [count === 1 ? base : base + "s", ...rest].join(" ");
-  };
+  // FIELDS labels are plural except "referral"; this gives the right form for a count.
+  const ONE = { drinks: "drink", shots: "shot", "shots bought": "shot bought", dishes: "dish", "Shark Weeks": "Shark Week", bars: "bar", "yellow cards": "yellow card" };
+  const plural = (label, count) => count === 1 ? (ONE[label] || label) : label === "referral" ? "referrals" : label;
   const n = v => Math.max(0, Math.round(Number(v) || 0));
 
-  function basePoints(c) {
-    let p = 0;
-    if (c.attended && !c.late) p += 8;
-    if (c.rsvpOnTime && !c.late) p += 5;
-    if (c.organized) p += 10;
-    p += n(c.referrals) * 10 + n(c.drinks) + n(c.shots) * 2 + Math.min(n(c.shotsBought), 5);
-    if (n(c.dishes) > 0) p += 5 + n(c.dishes) - 1;
-    p += n(c.sharkWeeks) * 2 + (c.holyGrail ? 15 : 0) + n(c.bars) * 2;
-    if (c.kickedOut) p -= 50;
-    return p;
+  // One line per scoring rule: [what, how it was counted, points]. basePoints is their sum.
+  function tallyLines(c) {
+    const L = [], each = (k, label, per) => { const v = n(c[k]); if (v) L.push([label, `${v} × ${per}`, v * per]); };
+    if (c.attended) L.push(c.late ? ["Showed up", "30+ min late: no attendance or RSVP points", 0] : ["Showed up", "", 8]);
+    if (c.rsvpOnTime && !c.late) L.push(["RSVP'd yes by the deadline", "", 5]);
+    if (c.organized) L.push(["Organized the brunch", "sent the Partiful", 10]);
+    each("referrals", "Referrals", 10);
+    each("drinks", "Drinks", 1);
+    each("shots", "Shots", 2);
+    const bought = n(c.shotsBought);
+    if (bought) L.push(["Shots bought for others", bought > 5 ? `${bought}, max 5 count` : `${bought} × 1`, Math.min(bought, 5)]);
+    const dishes = n(c.dishes);
+    if (dishes) L.push(["Dishes", dishes === 1 ? "first dish" : `first dish 5 + ${dishes - 1} extra × 1`, 5 + dishes - 1]);
+    each("sharkWeeks", "Shark Weeks", 2);
+    if (c.holyGrail) L.push(["Holy Grail", "", 15]);
+    each("bars", "Bars after brunch", 2);
+    if (n(c.yellowCards)) L.push(["Yellow cards", `${n(c.yellowCards)} (every 2nd is a red card)`, 0]);
+    if (c.kickedOut) L.push(["Kicked out of a bar", "", -50]);
+    return L;
   }
+  const basePoints = c => tallyLines(c).reduce((t, l) => t + l[2], 0);
   const fmt = x => (Math.round(x * 10) / 10).toLocaleString(undefined, { maximumFractionDigits: 1 });
 
   let data = null, tab = "standings", week = null;
@@ -277,14 +317,14 @@ details.before[open] summary { margin-bottom: 6px; }
     const rows = data.scores.filter(s => s.player === pid).sort((a, b) => a.week - b.week);
     let yellows = 0, halfWeek = null, reds = 0;
     const weeks = rows.map(s => {
-      const c = s.counts, mult = Number(data.brunches[s.week]?.multiplier) || 1;
-      let pts = basePoints(c) * mult; const notes = [];
-      if (halfWeek === s.week) { pts /= 2; notes.push("half points (red card)"); }
+      const c = s.counts, mult = Number(data.brunches[s.week]?.multiplier) || 1, base = basePoints(c);
+      let pts = base * mult; const notes = [], adj = [];
+      if (mult !== 1) { notes.push("×" + mult + " finale"); adj.push([`Finale ×${mult}`, `${fmt(base)} × ${mult}`, pts - base]); }
+      if (halfWeek === s.week) { notes.push("half points (red card)"); adj.push(["Half points", "red card the week before", -pts / 2]); pts /= 2; }
       const before = Math.floor(yellows / 2); yellows += n(c.yellowCards);
       const newReds = Math.floor(yellows / 2) - before;
-      if (newReds > 0) { pts -= 10 * newReds; reds += newReds; halfWeek = s.week + 1; notes.push("red card −10"); }
-      if (mult !== 1) notes.push("×" + mult + " finale");
-      return { week: s.week, pts, notes, c, s };
+      if (newReds > 0) { pts -= 10 * newReds; reds += newReds; halfWeek = s.week + 1; notes.push("red card −10"); adj.push(["Red card", "second yellow", -10 * newReds]); }
+      return { week: s.week, pts, notes, adj, c, s };
     });
     const best = [...weeks].sort((a, b) => b.pts - a.pts).slice(0, 3);
     const sum = a => a.reduce((t, w) => t + w.pts, 0);
@@ -321,7 +361,8 @@ details.before[open] summary { margin-bottom: 6px; }
               h("span", { text: `${r.s.weeks.length} brunch${r.s.weeks.length === 1 ? "" : "es"}` }),
               r.s.yellowsOpen ? h("span", {}, h("span", { class: "card-chip y" }), " 1 yellow") : null,
               r.s.reds ? h("span", {}, h("span", { class: "card-chip r" }), ` ${r.s.reds} red`) : null,
-              h("span", { class: "weeks-strip" }, r.s.weeks.map(w => h("span", { class: "wk num" + (r.s.best.has(w.week) ? " best" : ""), text: `W${w.week} ${fmt(w.pts)}` }))))),
+              h("span", { class: "weeks-strip" }, r.s.weeks.map(w => h("button", { class: "wk num" + (r.s.best.has(w.week) ? " best" : ""),
+                "aria-label": `${r.name}, week ${w.week}: ${fmt(w.pts)} points. Show scorecard`, onclick: () => openDetail(r.id, w.week) }, `W${w.week} ${fmt(w.pts)}`))))),
           h("span", { class: "top3 num", text: fmt(r.s.top3) }),
           h("span", { class: "season num", text: fmt(r.s.total) }));
       }));
@@ -345,7 +386,7 @@ details.before[open] summary { margin-bottom: 6px; }
           h("span", { class: "chip" + (BONUS.has(k) ? " bonus" : ""), text: t === "num" ? `${n(c[k])} ${plural(label, n(c[k]))}` : label }));
         r.wk.notes.forEach(x => chips.push(h("span", { class: "chip", text: x })));
         if (!c.attended) chips.unshift(h("span", { class: "chip", text: "bonus only" }));
-        return h("div", { class: "week-row" },
+        return h("button", { class: "week-row", onclick: () => openDetail(r.id, week) },
           h("div", { style: "min-width:0;display:grid;gap:4px" }, h("span", { class: "pname", text: r.name }), h("div", { class: "chips" }, chips)),
           h("span", { class: "pts num", text: fmt(r.wk.pts) }));
       }));
@@ -383,6 +424,35 @@ details.before[open] summary { margin-bottom: 6px; }
     } catch (e) { $("pastList").replaceChildren(h("p", { class: "empty", text: "Couldn't load past seasons. Refresh to try again." })); }
   }
   loadPast();
+
+  function openDetail(pid, wk) {
+    const w = season(pid).weeks.find(x => x.week === wk);
+    if (!w) return;
+    const date = data.brunches[wk]?.date;
+    $("detailTitle").textContent = data.players[pid].name;
+    $("detailSub").textContent = `Season ${data.season} · Week ${wk}` + (date ? " · " + new Date(date + "T12:00").toLocaleDateString(undefined, { month: "long", day: "numeric" }) : "");
+    const cards = (w.s.cards || []).filter(src => /^cards\/[\w\/-]+\.jpg$/.test(src));
+    const lines = tallyLines(w.c);
+    $("detailBody").replaceChildren(
+      cards.length
+        ? h("div", { class: "card-photos" }, cards.map((src, i) => h("a", { href: src, target: "_blank", rel: "noopener" },
+            h("img", { src, alt: `${data.players[pid].name}'s week ${wk} scorecard${cards.length > 1 ? ` (photo ${i + 1})` : ""}`, loading: "lazy" }))))
+        : h("p", { class: "notice", text: w.c.attended ? "No photo of this card yet." : "No card: bonus points only (organizer or referral)." }),
+      cards.length > 1 ? h("p", { class: "hint", text: "This card shows up in more than one photo. Tap a photo to open it full size." })
+        : cards.length ? h("p", { class: "hint", text: "Tap the photo to open it full size. Several cards can share one photo." }) : null,
+      h("table", { class: "tally" }, h("tbody", {},
+        lines.length ? lines.map(([what, how, pts]) => h("tr", {}, h("td", { text: what }), h("td", { class: "how", text: how }), h("td", { class: "pts", text: (pts > 0 ? "+" : "") + fmt(pts) })))
+          : h("tr", {}, h("td", { colspan: 3, class: "how", text: "Nothing recorded." })),
+        w.adj.map(([what, how, pts]) => h("tr", { class: pts < 0 ? "adj" : "" }, h("td", { text: what }), h("td", { class: "how", text: how }), h("td", { class: "pts", text: (pts > 0 ? "+" : "−") + fmt(Math.abs(pts)) }))),
+        h("tr", { class: "total" }, h("td", { colspan: 2, text: "Total" }), h("td", { class: "pts num", text: fmt(w.pts) })))),
+      w.s.notes ? h("p", { class: "hint", text: "Scorer's note: " + w.s.notes }) : null,
+      h("p", { class: "hint", text: "Count looks wrong? Tell Dave and it gets fixed." }));
+    const dlg = $("detail");
+    if (!dlg.open) dlg.showModal();
+    dlg.scrollTop = 0;
+  }
+  $("detailClose").addEventListener("click", () => $("detail").close());
+  $("detail").addEventListener("click", e => { if (e.target === $("detail")) $("detail").close(); });
 
   const TABS = ["standings", "weeks", "past", "rules"];
   function show(t) {
