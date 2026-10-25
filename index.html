@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Brunch League</title>
+<meta name="description" content="Brunch League DC live standings">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥂</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<style>
+/* Layout: a turf-green scoreboard band (title, update status, tabs) over one readable column of panels. */
+:root {
+  --bg: #F2F5EF; --surface: #FFFFFF; --surface-2: #E8EEE6; --ink: #16211A; --muted: #56655B; --line: #D5DED3;
+  --turf: #1D573A; --on-turf: #F7F3E4; --champagne: #F4DE9C; --mimosa: #D97A06; --mimosa-soft: #FCE9CC;
+  --yellow: #E2B000; --red: #C42238;
+  --display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --radius: 10px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0E1611; --surface: #16211A; --surface-2: #1D2A21; --ink: #ECF2EA; --muted: #9CAFA1; --line: #2A3A2F;
+    --turf: #143D28; --mimosa: #FFAA3B; --mimosa-soft: #3A2A12; --yellow: #F2C531; --red: #FF5D72;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); background: var(--turf); }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 var(--body); min-height: 100vh; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--mimosa); outline-offset: 2px; }
+.num { font-variant-numeric: tabular-nums; }
+[hidden] { display: none !important; }
+
+.band { background: var(--turf); color: var(--on-turf); border-bottom: 4px solid var(--mimosa); }
+.band-inner, .wrap {
+  max-width: 880px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.band-inner { padding-block: 22px 0; display: grid; gap: 14px; }
+.eyebrow { font-weight: 700; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--champagne); display: flex; flex-wrap: wrap; gap: 6px 14px; }
+h1 { margin: 0; font: 900 clamp(44px, 11vw, 84px)/.88 var(--display); text-transform: uppercase; }
+h1 span { color: var(--champagne); }
+.tabs { display: flex; gap: 2px; overflow-x: auto; margin-inline: -4px; scrollbar-width: none; }
+.tabs button {
+  border: 0; background: transparent; color: var(--on-turf); opacity: .78; cursor: pointer;
+  font: 700 17px/1 var(--display); letter-spacing: .06em; text-transform: uppercase;
+  padding: 12px 12px 14px; border-radius: 8px 8px 0 0; white-space: nowrap;
+}
+.tabs button[aria-selected="true"] { opacity: 1; background: var(--bg); color: var(--ink); }
+
+main.wrap { padding-block: 20px 56px; display: grid; gap: 18px; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; display: grid; gap: 14px; min-width: 0; }
+h2 { margin: 0; font: 900 28px/1 var(--display); text-transform: uppercase; letter-spacing: .02em; }
+.sub { color: var(--muted); margin: 0; max-width: 62ch; }
+.row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.spread { justify-content: space-between; }
+.empty { text-align: center; padding: 28px 12px; color: var(--muted); }
+.notice { border-radius: 8px; padding: 10px 12px; background: var(--mimosa-soft); margin: 0; }
+
+.awards { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; }
+.award { border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 14px; display: grid; gap: 2px; background: var(--surface); }
+.award .k { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--mimosa); }
+.award .who { font: 900 24px/1.05 var(--display); text-transform: uppercase; overflow-wrap: anywhere; }
+.award .why { font-size: 13px; color: var(--muted); }
+.award.champ { background: var(--turf); border-color: var(--turf); color: var(--on-turf); }
+.award.champ .k { color: var(--champagne); }
+.award.champ .why { color: color-mix(in srgb, var(--on-turf) 75%, transparent); }
+
+.board-head, .board-row { display: grid; grid-template-columns: 2.2em minmax(0, 1fr) 5.2em 5.2em; gap: 10px; align-items: center; padding: 10px 4px; }
+.board-head { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); border-bottom: 2px solid var(--ink); }
+.r { text-align: right; }
+.board-row { border-bottom: 1px solid var(--line); }
+.rank { font: 900 26px/1 var(--display); color: var(--muted); }
+.board-row.first .rank { color: var(--mimosa); }
+.pname { font-weight: 700; overflow-wrap: anywhere; }
+.pmeta { font-size: 12px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; }
+.top3 { font: 900 30px/1 var(--display); text-align: right; }
+.season { font-weight: 700; text-align: right; color: var(--muted); }
+.wk { font-size: 11px; padding: 1px 6px; border-radius: 4px; background: var(--surface-2); color: var(--muted); }
+.wk.best { background: var(--mimosa-soft); color: var(--ink); font-weight: 700; }
+.weeks-strip { display: flex; gap: 3px; flex-wrap: wrap; }
+.card-chip { display: inline-block; width: 10px; height: 14px; border-radius: 2px; vertical-align: -2px; }
+.card-chip.y { background: var(--yellow); } .card-chip.r { background: var(--red); }
+
+.weekpick { display: flex; gap: 6px; flex-wrap: wrap; }
+.weekpick button { border: 1.5px solid var(--line); background: var(--surface); border-radius: 999px; padding: 6px 12px; font-weight: 700; cursor: pointer; }
+.weekpick button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.week-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.week-row .pts { font: 900 26px/1 var(--display); }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.chip { font-size: 12px; padding: 1px 8px; border-radius: 999px; background: var(--surface-2); color: var(--muted); }
+.chip.bonus { background: var(--mimosa-soft); color: var(--ink); }
+
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 18px; align-items: start; }
+.rule-block { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.rule-block h3 { margin: 0; font: 900 20px/1 var(--display); text-transform: uppercase; letter-spacing: .03em; padding: 12px 14px; background: var(--surface-2); }
+.rule-list { list-style: none; margin: 0; padding: 0; }
+.rule-list li { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 14px; border-top: 1px solid var(--line); }
+.rule-list .what { min-width: 0; display: grid; line-height: 1.3; }
+.rule-list .what small { color: var(--muted); font-size: 12.5px; }
+.pts-pill { flex: none; min-width: 3.4em; text-align: center; font: 900 18px/1 var(--display); padding: 6px 8px; border-radius: 6px; background: var(--mimosa-soft); font-variant-numeric: tabular-nums; }
+.pts-pill.neg { background: color-mix(in srgb, var(--red) 16%, var(--surface)); color: var(--red); }
+.pts-pill.card { display: inline-flex; align-items: center; gap: 6px; background: var(--surface-2); font-size: 15px; }
+.rule-notes { margin: 0; padding: 12px 14px 14px 32px; border-top: 1px solid var(--line); display: grid; gap: 6px; }
+
+@media (max-width: 520px) {
+  .board-head, .board-row { grid-template-columns: 1.8em minmax(0, 1fr) 4.2em; }
+  .season-h, .season { display: none; }
+}
+</style>
+</head>
+<body>
+<header class="band">
+  <div class="band-inner">
+    <div class="eyebrow"><span id="seasonLabel">Season 5</span><span id="updated">Loading…</span></div>
+    <h1>Brunch <span>League</span></h1>
+    <nav class="tabs" role="tablist" aria-label="Sections">
+      <button role="tab" id="tab-standings" data-tab="standings" aria-selected="true">Standings</button>
+      <button role="tab" id="tab-weeks" data-tab="weeks" aria-selected="false">Weekly scores</button>
+      <button role="tab" id="tab-rules" data-tab="rules" aria-selected="false">Rules</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="notice" id="loadError" hidden>Couldn't load the scores. Check your connection and refresh.</p>
+
+  <section id="view-standings" style="display:grid;gap:18px">
+    <div class="awards" id="awards"></div>
+    <div class="panel">
+      <div class="row spread"><h2>Standings</h2><span class="sub" style="font-size:13px">Ranked by your best 3 brunches</span></div>
+      <div id="board"><p class="empty">Loading standings…</p></div>
+      <p class="sub" style="font-size:13px">Scores update automatically when scorecards are posted in the GroupMe. Spot a mistake? Tell Dave.</p>
+    </div>
+  </section>
+
+  <section id="view-weeks" hidden>
+    <div class="panel">
+      <h2>Weekly scores</h2>
+      <div class="weekpick" id="weekPick" role="group" aria-label="Week"></div>
+      <div id="weekList"></div>
+    </div>
+  </section>
+
+  <section id="view-rules" hidden>
+    <div class="panel">
+      <h2>How points work</h2>
+      <p class="sub">Only your top 3 brunches count toward Champion. Every brunch counts toward the Dionysus Award.</p>
+      <div class="rules">
+        <div class="rule-block">
+          <h3>Scoring</h3>
+          <ul class="rule-list">
+            <li><span class="what">Show up</span><span class="pts-pill">+8</span></li>
+            <li><span class="what">RSVP yes by the deadline<small>and arrive on time</small></span><span class="pts-pill">+5</span></li>
+            <li><span class="what">Organize the brunch<small>pick the place and send the Partiful</small></span><span class="pts-pill">+10</span></li>
+            <li><span class="what">Referral<small>each new player you bring to the league</small></span><span class="pts-pill">+10</span></li>
+            <li><span class="what">Drink<small>any non-shot drink</small></span><span class="pts-pill">+1</span></li>
+            <li><span class="what">Shot</span><span class="pts-pill">+2</span></li>
+            <li><span class="what">Buy someone a shot<small>with consent, max 5 a week</small></span><span class="pts-pill">+1</span></li>
+            <li><span class="what">First dish</span><span class="pts-pill">+5</span></li>
+            <li><span class="what">Each extra dish</span><span class="pts-pill">+1</span></li>
+            <li><span class="what">Shark Week</span><span class="pts-pill">+2</span></li>
+            <li><span class="what">Holy Grail<small>Shark Week everyone at brunch</small></span><span class="pts-pill">+15</span></li>
+            <li><span class="what">Each bar after brunch</span><span class="pts-pill">+2</span></li>
+          </ul>
+        </div>
+        <div style="display:grid;gap:18px">
+          <div class="rule-block">
+            <h3>Penalties</h3>
+            <ul class="rule-list">
+              <li><span class="what">Miss your reservation</span><span class="pts-pill card"><span class="card-chip y"></span>Yellow</span></li>
+              <li><span class="what">Second yellow card<small>and half points the following week</small></span><span class="pts-pill neg">−10</span></li>
+              <li><span class="what">More than 30 min late<small>no attendance or RSVP points</small></span><span class="pts-pill neg">+0</span></li>
+              <li><span class="what">Kicked out of a bar</span><span class="pts-pill neg">−50</span></li>
+            </ul>
+          </div>
+          <div class="rule-block">
+            <h3>Awards</h3>
+            <ul class="rule-list">
+              <li><span class="what">Brunch League Champion<small>most points across your best 3 brunches</small></span></li>
+              <li><span class="what">Dionysus Award<small>most total points all season</small></span></li>
+              <li><span class="what">Brunch Gourmand<small>most dishes</small></span></li>
+              <li><span class="what">Sharknado Award<small>most Shark Weeks</small></span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="rule-block">
+          <h3>Shark Week</h3>
+          <ol class="rule-notes">
+            <li>Yell "Shark Week!" and finish someone's unattended bottomless drink.</li>
+            <li>A drink is fair game after 1 minute without a sip.</li>
+            <li>It's safe if the owner is touching it or has said they're leaving the table.</li>
+            <li>Bottomless only. After bottomless ends, it doesn't count.</li>
+            <li>An illegal Shark Week scores 0, and the victim keeps their drink point.</li>
+            <li>Collusion is illegal. If in doubt, ask Chad.</li>
+          </ol>
+        </div>
+        <div class="rule-block">
+          <h3>After brunch</h3>
+          <ol class="rule-notes">
+            <li>Brunch ends at midnight, or when fewer than 3 people are still together at a bar.</li>
+            <li>Events like birthdays or a volo player party are exceptions.</li>
+            <li>The playoff finale is worth more points.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(() => {
+  const FIELDS = [
+    ["rsvpOnTime", "RSVP on time", "bool"], ["organized", "organized", "bool"], ["referrals", "referral", "num"],
+    ["late", "30+ min late", "bool"], ["drinks", "drinks", "num"], ["shots", "shots", "num"], ["shotsBought", "shots bought", "num"],
+    ["dishes", "dishes", "num"], ["sharkWeeks", "Shark Weeks", "num"], ["holyGrail", "Holy Grail", "bool"],
+    ["bars", "bars", "num"], ["yellowCards", "yellow cards", "num"], ["kickedOut", "kicked out", "bool"],
+  ];
+  const BONUS = new Set(["organized", "referrals", "holyGrail"]);
+  const n = v => Math.max(0, Math.round(Number(v) || 0));
+
+  function basePoints(c) {
+    let p = 0;
+    if (c.attended && !c.late) p += 8;
+    if (c.rsvpOnTime && !c.late) p += 5;
+    if (c.organized) p += 10;
+    p += n(c.referrals) * 10 + n(c.drinks) + n(c.shots) * 2 + Math.min(n(c.shotsBought), 5);
+    if (n(c.dishes) > 0) p += 5 + n(c.dishes) - 1;
+    p += n(c.sharkWeeks) * 2 + (c.holyGrail ? 15 : 0) + n(c.bars) * 2;
+    if (c.kickedOut) p -= 50;
+    return p;
+  }
+  const fmt = x => (Math.round(x * 10) / 10).toLocaleString(undefined, { maximumFractionDigits: 1 });
+
+  let data = null, tab = "standings", week = null;
+  const $ = id => document.getElementById(id);
+  function h(tag, attrs = {}, ...kids) {
+    const el = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs)) {
+      if (v == null || v === false) continue;
+      if (k === "class") el.className = v; else if (k === "text") el.textContent = v;
+      else if (k.startsWith("on")) el.addEventListener(k.slice(2), v); else el.setAttribute(k, v);
+    }
+    for (const kid of kids.flat()) if (kid != null && kid !== false) el.append(kid.nodeType ? kid : document.createTextNode(String(kid)));
+    return el;
+  }
+
+  function season(pid) {
+    const rows = data.scores.filter(s => s.player === pid).sort((a, b) => a.week - b.week);
+    let yellows = 0, halfWeek = null, reds = 0;
+    const weeks = rows.map(s => {
+      const c = s.counts, mult = Number(data.brunches[s.week]?.multiplier) || 1;
+      let pts = basePoints(c) * mult; const notes = [];
+      if (halfWeek === s.week) { pts /= 2; notes.push("half points (red card)"); }
+      const before = Math.floor(yellows / 2); yellows += n(c.yellowCards);
+      const newReds = Math.floor(yellows / 2) - before;
+      if (newReds > 0) { pts -= 10 * newReds; reds += newReds; halfWeek = s.week + 1; notes.push("red card −10"); }
+      if (mult !== 1) notes.push("×" + mult + " finale");
+      return { week: s.week, pts, notes, c, s };
+    });
+    const best = [...weeks].sort((a, b) => b.pts - a.pts).slice(0, 3);
+    const sum = a => a.reduce((t, w) => t + w.pts, 0);
+    return { weeks, best: new Set(best.map(w => w.week)), top3: sum(best), total: sum(weeks),
+      dishes: weeks.reduce((t, w) => t + n(w.c.dishes), 0), sharks: weeks.reduce((t, w) => t + n(w.c.sharkWeeks), 0),
+      yellowsOpen: yellows % 2, reds };
+  }
+
+  function renderStandings() {
+    const table = Object.entries(data.players).map(([id, p]) => ({ id, name: p.name, s: season(id) })).filter(r => r.s.weeks.length)
+      .sort((a, b) => b.s.top3 - a.s.top3 || b.s.total - a.s.total);
+    const leader = (key, label) => {
+      const max = Math.max(0, ...table.map(r => r.s[key]));
+      if (max <= 0) return { who: "—", why: "Nobody yet" };
+      return { who: table.filter(r => r.s[key] === max).map(r => r.name).join(" & "), why: `${fmt(max)} ${label}` };
+    };
+    $("awards").replaceChildren(...[
+      ["Brunch League Champion", leader("top3", "pts in best 3"), true], ["Dionysus Award", leader("total", "season pts")],
+      ["Brunch Gourmand", leader("dishes", "dishes")], ["Sharknado Award", leader("sharks", "Shark Weeks")],
+    ].map(([k, v, champ]) => h("div", { class: "award" + (champ ? " champ" : "") },
+      h("span", { class: "k", text: k }), h("span", { class: "who", text: v.who }), h("span", { class: "why", text: v.why }))));
+
+    const board = $("board");
+    if (!table.length) { board.replaceChildren(h("p", { class: "empty", text: "No scores yet." })); return; }
+    let rank = 0, prev = null;
+    board.replaceChildren(
+      h("div", { class: "board-head" }, h("span", { text: "#" }), h("span", { text: "Player" }), h("span", { class: "r", text: "Best 3" }), h("span", { class: "r season-h", text: "Season" })),
+      ...table.map((r, i) => {
+        if (r.s.top3 !== prev) rank = i + 1; prev = r.s.top3;
+        return h("div", { class: "board-row" + (rank === 1 ? " first" : "") },
+          h("span", { class: "rank num", text: rank }),
+          h("div", { style: "min-width:0;display:grid;gap:2px" }, h("span", { class: "pname", text: r.name }),
+            h("div", { class: "pmeta" },
+              h("span", { text: `${r.s.weeks.length} brunch${r.s.weeks.length === 1 ? "" : "es"}` }),
+              r.s.yellowsOpen ? h("span", {}, h("span", { class: "card-chip y" }), " 1 yellow") : null,
+              r.s.reds ? h("span", {}, h("span", { class: "card-chip r" }), ` ${r.s.reds} red`) : null,
+              h("span", { class: "weeks-strip" }, r.s.weeks.map(w => h("span", { class: "wk num" + (r.s.best.has(w.week) ? " best" : ""), text: `W${w.week} ${fmt(w.pts)}` }))))),
+          h("span", { class: "top3 num", text: fmt(r.s.top3) }),
+          h("span", { class: "season num", text: fmt(r.s.total) }));
+      }));
+  }
+
+  function renderWeeks() {
+    const weeksWithScores = [...new Set(data.scores.map(s => s.week))].sort((a, b) => a - b);
+    if (week == null) week = weeksWithScores[weeksWithScores.length - 1] ?? data.currentWeek;
+    $("weekPick").replaceChildren(...Array.from({ length: Math.max(data.currentWeek, ...weeksWithScores) }, (_, i) => i + 1).map(w =>
+      h("button", { "aria-pressed": String(w === week), onclick: () => { week = w; renderWeeks(); } }, `Week ${w}`)));
+    const date = data.brunches[week]?.date;
+    const rows = Object.keys(data.players).map(id => ({ id, name: data.players[id].name, wk: season(id).weeks.find(x => x.week === week) }))
+      .filter(r => r.wk).sort((a, b) => b.wk.pts - a.wk.pts);
+    const list = $("weekList");
+    if (!rows.length) { list.replaceChildren(h("p", { class: "empty", text: `No scores for week ${week} yet.` })); return; }
+    list.replaceChildren(
+      date ? h("p", { class: "sub", text: new Date(date + "T12:00").toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" }) }) : null,
+      ...rows.map(r => {
+        const c = r.wk.c;
+        const chips = FIELDS.filter(([k, , t]) => t === "num" ? n(c[k]) > 0 : c[k]).map(([k, label, t]) =>
+          h("span", { class: "chip" + (BONUS.has(k) ? " bonus" : ""), text: t === "num" ? `${n(c[k])} ${label}${k === "referrals" && n(c[k]) > 1 ? "s" : ""}` : label }));
+        r.wk.notes.forEach(x => chips.push(h("span", { class: "chip", text: x })));
+        if (!c.attended) chips.unshift(h("span", { class: "chip", text: "bonus only" }));
+        return h("div", { class: "week-row" },
+          h("div", { style: "min-width:0;display:grid;gap:4px" }, h("span", { class: "pname", text: r.name }), h("div", { class: "chips" }, chips)),
+          h("span", { class: "pts num", text: fmt(r.wk.pts) }));
+      }));
+  }
+
+  const TABS = ["standings", "weeks", "rules"];
+  function show(t) {
+    tab = TABS.includes(t) ? t : "standings";
+    for (const name of TABS) { $("view-" + name).hidden = name !== tab; $("tab-" + name).setAttribute("aria-selected", String(name === tab)); }
+    if (location.hash.slice(1) !== tab) history.replaceState(null, "", "#" + tab);
+  }
+  document.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click", () => show(b.dataset.tab)));
+  show(location.hash.slice(1));
+
+  async function load() {
+    try {
+      const r = await fetch("data/league.json?t=" + Date.now(), { cache: "no-store" });
+      if (!r.ok) throw new Error(r.status);
+      data = await r.json();
+      $("loadError").hidden = true;
+      $("seasonLabel").textContent = `Season ${data.season} · Week ${data.currentWeek} of ${data.weeks}`;
+      $("updated").textContent = "Updated " + new Date(data.updated).toLocaleString(undefined, { weekday: "short", hour: "numeric", minute: "2-digit" });
+      renderStandings(); renderWeeks();
+    } catch (e) { if (!data) $("loadError").hidden = false; }
+  }
+  load();
+  setInterval(load, 5 * 60 * 1000);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,803 @@
+{
+ "season": 5,
+ "currentWeek": 7,
+ "weeks": 11,
+ "updated": "2026-10-24T20:19",
+ "brunches": {
+  "5": {
+   "date": "2026-10-11",
+   "multiplier": 1
+  },
+  "1": {
+   "date": "2026-09-13",
+   "multiplier": 1
+  },
+  "7": {
+   "date": "2026-10-25",
+   "multiplier": 1
+  },
+  "6": {
+   "date": "2026-10-18",
+   "multiplier": 1
+  },
+  "2": {
+   "date": "2026-09-20",
+   "multiplier": 1
+  },
+  "4": {
+   "date": "2026-10-04",
+   "multiplier": 1
+  },
+  "3": {
+   "date": "2026-09-27",
+   "multiplier": 1
+  }
+ },
+ "players": {
+  "alec-l": {
+   "name": "Alec L."
+  },
+  "alena-d": {
+   "name": "Alena D."
+  },
+  "andrea-g": {
+   "name": "Andrea G."
+  },
+  "anthony-l": {
+   "name": "Anthony L."
+  },
+  "chad": {
+   "name": "Chad"
+  },
+  "chris-r": {
+   "name": "Chris R."
+  },
+  "david-k": {
+   "name": "David K."
+  },
+  "donovan-b": {
+   "name": "Donovan B."
+  },
+  "jasmine-g": {
+   "name": "Jasmine G."
+  },
+  "jim-d": {
+   "name": "Jim D."
+  },
+  "john-l": {
+   "name": "John L."
+  },
+  "liam-m": {
+   "name": "Liam M."
+  },
+  "miranda-b": {
+   "name": "Miranda B."
+  },
+  "sam-h": {
+   "name": "Sam H."
+  },
+  "sarah": {
+   "name": "Sarah"
+  },
+  "simara-m": {
+   "name": "Simara M."
+  },
+  "whitney-t": {
+   "name": "Whitney T."
+  }
+ },
+ "scores": [
+  {
+   "week": 1,
+   "player": "anthony-l",
+   "counts": {
+    "attended": true,
+    "bars": 3,
+    "dishes": 2,
+    "drinks": 13,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "rsvpOnTime": false,
+    "sharkWeeks": 0,
+    "shots": 0,
+    "shotsBought": 0,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "bars partly hidden"
+  },
+  {
+   "week": 1,
+   "player": "chad",
+   "counts": {
+    "attended": false,
+    "bars": 0,
+    "dishes": 0,
+    "drinks": 0,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "organized": true,
+    "referrals": 0,
+    "rsvpOnTime": false,
+    "sharkWeeks": 0,
+    "shots": 0,
+    "shotsBought": 0,
+    "yellowCards": 0
+   },
+   "source": "manual",
+   "notes": "organizer only (sent the Sep 8 Partiful); no card yet"
+  },
+  {
+   "week": 1,
+   "player": "david-k",
+   "counts": {
+    "attended": true,
+    "bars": 6,
+    "dishes": 4,
+    "drinks": 14,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "rsvpOnTime": false,
+    "sharkWeeks": 2,
+    "shots": 5,
+    "shotsBought": 7,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": ""
+  },
+  {
+   "week": 1,
+   "player": "donovan-b",
+   "counts": {
+    "attended": true,
+    "bars": 6,
+    "dishes": 3,
+    "drinks": 11,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "rsvpOnTime": false,
+    "sharkWeeks": 0,
+    "shots": 5,
+    "shotsBought": 0,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": ""
+  },
+  {
+   "week": 1,
+   "player": "miranda-b",
+   "counts": {
+    "attended": true,
+    "bars": 1,
+    "dishes": 3,
+    "drinks": 6,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "rsvpOnTime": false,
+    "sharkWeeks": 3,
+    "shots": 0,
+    "shotsBought": 0,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "3 tacos"
+  },
+  {
+   "week": 1,
+   "player": "sam-h",
+   "counts": {
+    "attended": true,
+    "bars": 4,
+    "dishes": 3,
+    "drinks": 11,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "rsvpOnTime": false,
+    "sharkWeeks": 1,
+    "shots": 2,
+    "shotsBought": 5,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "dishes and bars hard to read"
+  },
+  {
+   "week": 2,
+   "player": "alec-l",
+   "counts": {
+    "attended": true,
+    "bars": 1,
+    "dishes": 1,
+    "drinks": 7,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "rsvpOnTime": false,
+    "sharkWeeks": 0,
+    "shots": 0,
+    "shotsBought": 0,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": ""
+  },
+  {
+   "week": 2,
+   "player": "david-k",
+   "counts": {
+    "attended": true,
+    "bars": 1,
+    "dishes": 1,
+    "drinks": 8,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "organized": true,
+    "rsvpOnTime": false,
+    "sharkWeeks": 0,
+    "shots": 1,
+    "shotsBought": 5,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "organizer (sent the Sep 16 Partiful)"
+  },
+  {
+   "week": 2,
+   "player": "jasmine-g",
+   "counts": {
+    "attended": true,
+    "bars": 1,
+    "dishes": 2,
+    "drinks": 8,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "rsvpOnTime": false,
+    "sharkWeeks": 0,
+    "shots": 1,
+    "shotsBought": 0,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": ""
+  },
+  {
+   "week": 2,
+   "player": "miranda-b",
+   "counts": {
+    "attended": true,
+    "bars": 1,
+    "dishes": 0,
+    "drinks": 7,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "rsvpOnTime": false,
+    "sharkWeeks": 1,
+    "shots": 0,
+    "shotsBought": 0,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": ""
+  },
+  {
+   "week": 2,
+   "player": "sam-h",
+   "counts": {
+    "attended": true,
+    "bars": 1,
+    "dishes": 1,
+    "drinks": 7,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "rsvpOnTime": false,
+    "sharkWeeks": 0,
+    "shots": 1,
+    "shotsBought": 0,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": ""
+  },
+  {
+   "week": 2,
+   "player": "sarah",
+   "counts": {
+    "attended": true,
+    "bars": 1,
+    "dishes": 2,
+    "drinks": 10,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "rsvpOnTime": false,
+    "sharkWeeks": 0,
+    "shots": 1,
+    "shotsBought": 0,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": ""
+  },
+  {
+   "week": 2,
+   "player": "simara-m",
+   "counts": {
+    "attended": true,
+    "bars": 1,
+    "dishes": 2,
+    "drinks": 5,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "rsvpOnTime": false,
+    "sharkWeeks": 0,
+    "shots": 0,
+    "shotsBought": 0,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": ""
+  },
+  {
+   "week": 3,
+   "player": "david-k",
+   "counts": {
+    "attended": true,
+    "bars": 5,
+    "dishes": 0,
+    "drinks": 11,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "organized": true,
+    "referrals": 1,
+    "rsvpOnTime": false,
+    "sharkWeeks": 0,
+    "shots": 2,
+    "shotsBought": 5,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "referral: Liam; organizer (sent the Sep 23 Partiful)"
+  },
+  {
+   "week": 3,
+   "player": "donovan-b",
+   "counts": {
+    "attended": true,
+    "bars": 4,
+    "dishes": 1,
+    "drinks": 9,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "rsvpOnTime": false,
+    "sharkWeeks": 0,
+    "shots": 4,
+    "shotsBought": 0,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "drinks hard to read"
+  },
+  {
+   "week": 3,
+   "player": "jim-d",
+   "counts": {
+    "attended": true,
+    "bars": 6,
+    "dishes": 1,
+    "drinks": 10,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "rsvpOnTime": false,
+    "sharkWeeks": 0,
+    "shots": 6,
+    "shotsBought": 5,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": ""
+  },
+  {
+   "week": 3,
+   "player": "john-l",
+   "counts": {
+    "attended": true,
+    "bars": 4,
+    "dishes": 2,
+    "drinks": 16,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "rsvpOnTime": false,
+    "sharkWeeks": 0,
+    "shots": 5,
+    "shotsBought": 0,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": ""
+  },
+  {
+   "week": 3,
+   "player": "liam-m",
+   "counts": {
+    "attended": true,
+    "bars": 3,
+    "dishes": 1,
+    "drinks": 11,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "rsvpOnTime": false,
+    "sharkWeeks": 0,
+    "shots": 7,
+    "shotsBought": 0,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "shots hard to read"
+  },
+  {
+   "week": 3,
+   "player": "miranda-b",
+   "counts": {
+    "attended": true,
+    "bars": 5,
+    "dishes": 0,
+    "drinks": 11,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "rsvpOnTime": false,
+    "sharkWeeks": 1,
+    "shots": 5,
+    "shotsBought": 2,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "bars cut off in photo"
+  },
+  {
+   "week": 3,
+   "player": "sam-h",
+   "counts": {
+    "attended": true,
+    "bars": 5,
+    "dishes": 1,
+    "drinks": 11,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "rsvpOnTime": false,
+    "sharkWeeks": 0,
+    "shots": 4,
+    "shotsBought": 5,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": ""
+  },
+  {
+   "week": 3,
+   "player": "whitney-t",
+   "counts": {
+    "attended": true,
+    "bars": 5,
+    "dishes": 0,
+    "drinks": 11,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "rsvpOnTime": false,
+    "sharkWeeks": 1,
+    "shots": 3,
+    "shotsBought": 5,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "drinks and bars hard to read"
+  },
+  {
+   "week": 4,
+   "player": "chad",
+   "counts": {
+    "attended": false,
+    "bars": 0,
+    "dishes": 0,
+    "drinks": 0,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "organized": true,
+    "referrals": 0,
+    "rsvpOnTime": false,
+    "sharkWeeks": 0,
+    "shots": 0,
+    "shotsBought": 0,
+    "yellowCards": 0
+   },
+   "source": "manual",
+   "notes": "organizer only (sent the Oct 2 Partiful); no card yet"
+  },
+  {
+   "week": 5,
+   "player": "andrea-g",
+   "counts": {
+    "attended": true,
+    "bars": 12,
+    "dishes": 11,
+    "drinks": 17,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "organized": true,
+    "rsvpOnTime": false,
+    "sharkWeeks": 2,
+    "shots": 12,
+    "shotsBought": 5,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "organizer (sent the Oct 8 Partiful); counts confirmed by a second, clearer photo on Oct 24"
+  },
+  {
+   "week": 5,
+   "player": "chris-r",
+   "counts": {
+    "attended": true,
+    "bars": 10,
+    "dishes": 11,
+    "drinks": 19,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "rsvpOnTime": false,
+    "sharkWeeks": 0,
+    "shots": 6,
+    "shotsBought": 4,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "RSVP checked; 2 karaoke songs"
+  },
+  {
+   "week": 5,
+   "player": "david-k",
+   "counts": {
+    "attended": true,
+    "bars": 11,
+    "dishes": 11,
+    "drinks": 16,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "organized": false,
+    "referrals": 1,
+    "rsvpOnTime": false,
+    "sharkWeeks": 0,
+    "shots": 9,
+    "shotsBought": 5,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "referral: Andrea; posted Oct 24 with 'That's week 5'"
+  },
+  {
+   "week": 5,
+   "player": "donovan-b",
+   "counts": {
+    "attended": true,
+    "bars": 9,
+    "dishes": 11,
+    "drinks": 16,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "rsvpOnTime": false,
+    "sharkWeeks": 0,
+    "shots": 4,
+    "shotsBought": 2,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "homemade card; circled S unclear"
+  },
+  {
+   "week": 5,
+   "player": "john-l",
+   "counts": {
+    "attended": true,
+    "bars": 10,
+    "dishes": 12,
+    "drinks": 25,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "organized": false,
+    "referrals": 0,
+    "rsvpOnTime": false,
+    "sharkWeeks": 0,
+    "shots": 5,
+    "shotsBought": 0,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "drinks hard to count (about 25); posted Oct 24 with 'That's week 5'"
+  },
+  {
+   "week": 5,
+   "player": "liam-m",
+   "counts": {
+    "attended": true,
+    "bars": 7,
+    "dishes": 1,
+    "drinks": 14,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "rsvpOnTime": false,
+    "sharkWeeks": 0,
+    "shots": 6,
+    "shotsBought": 5,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": ""
+  },
+  {
+   "week": 5,
+   "player": "sam-h",
+   "counts": {
+    "attended": true,
+    "bars": 10,
+    "dishes": 11,
+    "drinks": 14,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "rsvpOnTime": false,
+    "sharkWeeks": 1,
+    "shots": 5,
+    "shotsBought": 5,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "bars hard to read"
+  },
+  {
+   "week": 5,
+   "player": "simara-m",
+   "counts": {
+    "attended": true,
+    "bars": 8,
+    "dishes": 12,
+    "drinks": 5,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "rsvpOnTime": false,
+    "sharkWeeks": 0,
+    "shots": 2,
+    "shotsBought": 1,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": ""
+  },
+  {
+   "week": 6,
+   "player": "alena-d",
+   "counts": {
+    "attended": true,
+    "bars": 2,
+    "dishes": 1,
+    "drinks": 7,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "rsvpOnTime": false,
+    "sharkWeeks": 0,
+    "shots": 3,
+    "shotsBought": 0,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "bars: 'cabin, boat'"
+  },
+  {
+   "week": 6,
+   "player": "chad",
+   "counts": {
+    "attended": true,
+    "bars": 0,
+    "dishes": 3,
+    "drinks": 15,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "rsvpOnTime": false,
+    "sharkWeeks": 0,
+    "shots": 1,
+    "shotsBought": 0,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": ""
+  },
+  {
+   "week": 6,
+   "player": "donovan-b",
+   "counts": {
+    "attended": true,
+    "bars": 1,
+    "dishes": 1,
+    "drinks": 13,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "rsvpOnTime": false,
+    "sharkWeeks": 0,
+    "shots": 4,
+    "shotsBought": 0,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "dishes: 'Everything'"
+  },
+  {
+   "week": 6,
+   "player": "jim-d",
+   "counts": {
+    "attended": true,
+    "bars": 0,
+    "dishes": 3,
+    "drinks": 16,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "rsvpOnTime": false,
+    "sharkWeeks": 4,
+    "shots": 3,
+    "shotsBought": 0,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "'CHAD' written by Shark Weeks"
+  },
+  {
+   "week": 6,
+   "player": "sam-h",
+   "counts": {
+    "attended": true,
+    "bars": 1,
+    "dishes": 4,
+    "drinks": 11,
+    "holyGrail": false,
+    "kickedOut": false,
+    "late": false,
+    "rsvpOnTime": false,
+    "sharkWeeks": 2,
+    "shots": 1,
+    "shotsBought": 0,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": ""
+  }
+ ]
+}
