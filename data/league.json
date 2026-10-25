@@ -2,7 +2,7 @@
  "season": 5,
  "currentWeek": 7,
  "weeks": 11,
- "updated": "2026-10-24T20:19",
+ "updated": "2026-10-25T12:37",
  "brunches": {
   "5": {
    "date": "2026-10-11",
@@ -798,6 +798,28 @@
    },
    "source": "photo",
    "notes": ""
+  },
+  {
+   "week": 6,
+   "player": "simara-m",
+   "counts": {
+    "attended": true,
+    "rsvpOnTime": false,
+    "organized": false,
+    "late": false,
+    "holyGrail": false,
+    "kickedOut": false,
+    "referrals": 0,
+    "drinks": 8,
+    "shots": 0,
+    "shotsBought": 0,
+    "dishes": 4,
+    "sharkWeeks": 0,
+    "bars": 1,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "found card posted Oct 21; week confirmed by Simara in GroupMe"
   }
  ]
 }
