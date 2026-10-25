@@ -29,7 +29,8 @@
   }
 }
 * { box-sizing: border-box; }
-html { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); background: var(--turf); }
+html { background: var(--bg); }
+body::before { content: ""; display: block; height: env(safe-area-inset-top, 0px); background: var(--turf); }
 body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 var(--body); min-height: 100vh; }
 button { font: inherit; color: inherit; }
 :focus-visible { outline: 3px solid var(--mimosa); outline-offset: 2px; }
@@ -223,6 +224,12 @@ h2 { margin: 0; font: 900 28px/1 var(--display); text-transform: uppercase; lett
     ["bars", "bars", "num"], ["yellowCards", "yellow cards", "num"], ["kickedOut", "kicked out", "bool"],
   ];
   const BONUS = new Set(["organized", "referrals", "holyGrail"]);
+  // "drinks" -> "drink", "shots bought" -> "shot bought", "referral" -> "referrals"
+  const plural = (label, count) => {
+    const [first, ...rest] = label.split(" ");
+    const base = first.endsWith("s") ? first.slice(0, -1) : first;
+    return [count === 1 ? base : base + "s", ...rest].join(" ");
+  };
   const n = v => Math.max(0, Math.round(Number(v) || 0));
 
   function basePoints(c) {
@@ -320,7 +327,7 @@ h2 { margin: 0; font: 900 28px/1 var(--display); text-transform: uppercase; lett
       ...rows.map(r => {
         const c = r.wk.c;
         const chips = FIELDS.filter(([k, , t]) => t === "num" ? n(c[k]) > 0 : c[k]).map(([k, label, t]) =>
-          h("span", { class: "chip" + (BONUS.has(k) ? " bonus" : ""), text: t === "num" ? `${n(c[k])} ${label}${k === "referrals" && n(c[k]) > 1 ? "s" : ""}` : label }));
+          h("span", { class: "chip" + (BONUS.has(k) ? " bonus" : ""), text: t === "num" ? `${n(c[k])} ${plural(label, n(c[k]))}` : label }));
         r.wk.notes.forEach(x => chips.push(h("span", { class: "chip", text: x })));
         if (!c.attended) chips.unshift(h("span", { class: "chip", text: "bonus only" }));
         return h("div", { class: "week-row" },
