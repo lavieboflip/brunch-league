@@ -46,7 +46,64 @@
      "pts": 95
     }
    ],
-   "note": "Final standings, top 10."
+   "note": "Final standings, top 10.",
+   "weeks": [
+    {
+     "week": "Jul 25",
+     "cards": [
+      {
+       "src": "cards/s4/20260726-1033_0.jpg",
+       "names": [
+        "Kent",
+        "Dingess",
+        "Sarah",
+        "Drew",
+        "Beth H."
+       ]
+      }
+     ],
+     "note": "Week number not posted for this brunch."
+    },
+    {
+     "week": "Aug 8",
+     "cards": [
+      {
+       "src": "cards/s4/20260808-1856_0.jpg",
+       "names": [
+        "John L.",
+        "Drew",
+        "Dingess",
+        "Chelsea Z.",
+        "Sam H."
+       ]
+      }
+     ],
+     "note": "Week number not posted for this brunch."
+    },
+    {
+     "week": "Finale",
+     "cards": [
+      {
+       "src": "cards/s4/20260829-1829_0.jpg",
+       "names": [
+        "Hunter H."
+       ]
+      },
+      {
+       "src": "cards/s4/20260830-1943_0.jpg",
+       "names": [
+        "Donovan B."
+       ]
+      },
+      {
+       "src": "cards/s4/20260830-2118_0.jpg",
+       "names": [
+        "Danielle T."
+       ]
+      }
+     ]
+    }
+   ]
   },
   {
    "season": 3,
@@ -161,7 +218,107 @@
      "pts": 18
     }
    ],
-   "beforeNote": "Standings going into the finale"
+   "beforeNote": "Standings going into the finale",
+   "weeks": [
+    {
+     "week": "1",
+     "winner": "Sam H.",
+     "cards": [
+      {
+       "src": "cards/s3/20260302-1924_0.jpg",
+       "names": [
+        "Jaimee S.",
+        "David K."
+       ]
+      },
+      {
+       "src": "cards/s3/20260304-1701_0.jpg",
+       "names": [
+        "Sam H."
+       ]
+      },
+      {
+       "src": "cards/s3/20260305-1319_0.jpg",
+       "names": [
+        "Jaimee S."
+       ]
+      }
+     ]
+    },
+    {
+     "week": "2",
+     "winner": "Fraiser",
+     "cards": [
+      {
+       "src": "cards/s3/20260308-1910_0.jpg",
+       "names": [
+        "Dingess",
+        "Brittany"
+       ]
+      },
+      {
+       "src": "cards/s3/20260308-2054_0.jpg",
+       "names": [
+        "Sam H."
+       ]
+      },
+      {
+       "src": "cards/s3/20260327-2356_0.jpg",
+       "names": [
+        "Jasmine G.",
+        "Sarah",
+        "Sam H.",
+        "Fraiser",
+        "David K."
+       ]
+      }
+     ]
+    },
+    {
+     "week": "3",
+     "winner": "John L."
+    },
+    {
+     "week": "4",
+     "winner": "Alec L.",
+     "cards": [
+      {
+       "src": "cards/s3/20260329-1307_0.jpg",
+       "names": [
+        "Alec L.",
+        "Hunter H.",
+        "David K.",
+        "Jim D.",
+        "Whitney T."
+       ]
+      },
+      {
+       "src": "cards/s3/20260329-1309_0.jpg",
+       "names": [
+        "Donovan B."
+       ]
+      },
+      {
+       "src": "cards/s3/20260330-1736_0.jpg",
+       "names": [
+        "Alena D."
+       ]
+      }
+     ],
+     "note": "Whitney T. organized (+10 added after her top 3)."
+    },
+    {
+     "week": "7",
+     "cards": [
+      {
+       "src": "cards/s3/20260429-0655_0.jpg",
+       "names": [
+        "David K."
+       ]
+      }
+     ]
+    }
+   ]
   },
   {
    "season": 2,
@@ -229,7 +386,312 @@
      "pts": 130
     }
    ],
-   "note": "Final standings, top 15."
+   "note": "Final standings, top 15.",
+   "weeks": [
+    {
+     "week": "1a",
+     "winner": "Whitney T."
+    },
+    {
+     "week": "1b",
+     "winner": "Caitlin S."
+    },
+    {
+     "week": "2",
+     "winner": "David K."
+    },
+    {
+     "week": "3",
+     "results": [
+      {
+       "name": "Sarah",
+       "pts": 58
+      },
+      {
+       "name": "Miranda B.",
+       "pts": 53
+      },
+      {
+       "name": "Sam H.",
+       "pts": 53
+      },
+      {
+       "name": "Anthony L.",
+       "pts": 52
+      },
+      {
+       "name": "Jasmine G.",
+       "pts": 52
+      },
+      {
+       "name": "Chad",
+       "pts": 51
+      },
+      {
+       "name": "Aaron Z.",
+       "pts": 50
+      },
+      {
+       "name": "Caitlin S.",
+       "pts": 49
+      }
+     ],
+     "resultsImage": "cards/s2/20251014-1017_0.jpg",
+     "winner": "Sarah"
+    },
+    {
+     "week": "4",
+     "winner": "David K. (2nd Whitney T., 3rd Sarah)"
+    },
+    {
+     "week": "5",
+     "winner": "Aaron Z.",
+     "cards": [
+      {
+       "src": "cards/s2/20251103-0753_0.jpg",
+       "names": [
+        "Teresa T.",
+        "Jasmine G.",
+        "David K.",
+        "Sam H.",
+        "Kent",
+        "Drew",
+        "Chelsea Z.",
+        "Aaron Z.",
+        "Caitlin S.",
+        "Conrad S.",
+        "Chad",
+        "Patryk",
+        "Whitney T.",
+        "Patrick",
+        "Camille",
+        "Sarah",
+        "Miranda B."
+       ]
+      }
+     ]
+    },
+    {
+     "week": "6",
+     "winner": "Sarah",
+     "cards": [
+      {
+       "src": "cards/s2/20251111-0920_0.jpg",
+       "names": [
+        "Bobby",
+        "Miranda B.",
+        "Dingess",
+        "Alec L.",
+        "Sam H.",
+        "David K.",
+        "Whitney T.",
+        "Teresa T.",
+        "Jim D.",
+        "Donovan B.",
+        "Drew"
+       ]
+      },
+      {
+       "src": "cards/s2/20251111-1328_0.jpg",
+       "names": [
+        "Kristina",
+        "Brittany"
+       ]
+      },
+      {
+       "src": "cards/s2/20251111-1328_1.jpg",
+       "names": [
+        "Sarah",
+        "Chelsea Z."
+       ]
+      },
+      {
+       "src": "cards/s2/20251111-1328_2.jpg",
+       "names": [
+        "Sean",
+        "Dan"
+       ]
+      }
+     ]
+    },
+    {
+     "week": "7",
+     "winner": "Aaron Z.",
+     "cards": [
+      {
+       "src": "cards/s2/20251117-1323_0.jpg",
+       "names": [
+        "Aaron Z."
+       ]
+      },
+      {
+       "src": "cards/s2/20251117-1323_1.jpg",
+       "names": [
+        "Aaron Z."
+       ]
+      },
+      {
+       "src": "cards/s2/20251117-1324_0.jpg",
+       "names": [
+        "Drew"
+       ]
+      },
+      {
+       "src": "cards/s2/20251117-1324_1.jpg",
+       "names": [
+        "Drew"
+       ]
+      },
+      {
+       "src": "cards/s2/20251117-1324_2.jpg",
+       "names": [
+        "Anthony L."
+       ]
+      },
+      {
+       "src": "cards/s2/20251117-1325_0.jpg",
+       "names": [
+        "Anthony L."
+       ]
+      },
+      {
+       "src": "cards/s2/20251117-1325_1.jpg",
+       "names": [
+        "Jasmine G."
+       ]
+      },
+      {
+       "src": "cards/s2/20251117-1325_2.jpg",
+       "names": [
+        "Jasmine G."
+       ]
+      },
+      {
+       "src": "cards/s2/20251117-1326_0.jpg",
+       "names": [
+        "Sarah"
+       ]
+      },
+      {
+       "src": "cards/s2/20251117-1326_1.jpg",
+       "names": [
+        "Sarah"
+       ]
+      }
+     ],
+     "note": "Bonus-points brunch (Dolphins vs Commanders). Bonus items are on the back of each card."
+    },
+    {
+     "week": "8",
+     "winner": "Jim D.",
+     "cards": [
+      {
+       "src": "cards/s2/20251123-2345_0.jpg",
+       "names": [
+        "Donovan B."
+       ]
+      },
+      {
+       "src": "cards/s2/20251123-2345_1.jpg",
+       "names": [
+        "Whitney T."
+       ]
+      },
+      {
+       "src": "cards/s2/20251123-2345_2.jpg",
+       "names": [
+        "David K."
+       ]
+      },
+      {
+       "src": "cards/s2/20251123-2345_3.jpg",
+       "names": [
+        "Sam H."
+       ]
+      },
+      {
+       "src": "cards/s2/20251123-2345_6.jpg",
+       "names": [
+        "Jim D."
+       ]
+      },
+      {
+       "src": "cards/s2/20251123-2345_7.jpg",
+       "names": [
+        "Mike"
+       ]
+      },
+      {
+       "src": "cards/s2/20251126-2059_0.jpg",
+       "names": [
+        "Jasmine G."
+       ]
+      },
+      {
+       "src": "cards/s2/20251126-2059_1.jpg",
+       "names": [
+        "Brittany"
+       ]
+      },
+      {
+       "src": "cards/s2/20251126-2059_2.jpg",
+       "names": [
+        "Brittany",
+        "Jasmine G.",
+        "Fraiser"
+       ]
+      }
+     ]
+    },
+    {
+     "week": "9",
+     "winner": "Sarah",
+     "cards": [
+      {
+       "src": "cards/s2/20251208-1658_0.jpg",
+       "names": [
+        "Jasmine G."
+       ]
+      },
+      {
+       "src": "cards/s2/20251208-1658_1.jpg",
+       "names": [
+        "JP"
+       ]
+      },
+      {
+       "src": "cards/s2/20251208-1658_2.jpg",
+       "names": [
+        "Whitney T."
+       ]
+      },
+      {
+       "src": "cards/s2/20251208-1658_3.jpg",
+       "names": [
+        "Miranda B."
+       ]
+      },
+      {
+       "src": "cards/s2/20251208-1658_4.jpg",
+       "names": [
+        "Conrad S."
+       ]
+      },
+      {
+       "src": "cards/s2/20251208-1658_5.jpg",
+       "names": [
+        "Alec L."
+       ]
+      },
+      {
+       "src": "cards/s2/20251208-1658_6.jpg",
+       "names": [
+        "Sarah"
+       ]
+      }
+     ]
+    }
+   ]
   },
   {
    "season": 1,
@@ -404,7 +866,722 @@
      "pts": -30
     }
    ],
-   "beforeNote": "Standings through week 12, before the finale"
+   "beforeNote": "Standings through week 12, before the finale",
+   "weeks": [
+    {
+     "week": "1",
+     "results": [
+      {
+       "name": "Sam H.",
+       "pts": 49
+      },
+      {
+       "name": "David K.",
+       "pts": 45
+      },
+      {
+       "name": "Chad",
+       "pts": 43
+      },
+      {
+       "name": "Sarah",
+       "pts": 39
+      },
+      {
+       "name": "Fraiser",
+       "pts": 34
+      },
+      {
+       "name": "Miranda B.",
+       "pts": 32
+      },
+      {
+       "name": "Eric C.",
+       "pts": 32
+      },
+      {
+       "name": "Lauren",
+       "pts": 29
+      },
+      {
+       "name": "Whitney T.",
+       "pts": 27
+      },
+      {
+       "name": "Brandon C.",
+       "pts": 24
+      },
+      {
+       "name": "Guy",
+       "pts": 15
+      },
+      {
+       "name": "Babs H.",
+       "pts": 15
+      }
+     ],
+     "resultsImage": "cards/s1/20250604-2248_0.jpg"
+    },
+    {
+     "week": "2",
+     "results": [
+      {
+       "name": "Sam H.",
+       "pts": 59
+      },
+      {
+       "name": "Chad",
+       "pts": 58
+      },
+      {
+       "name": "David K.",
+       "pts": 51
+      },
+      {
+       "name": "Miranda B.",
+       "pts": 50
+      },
+      {
+       "name": "Kent",
+       "pts": 49
+      },
+      {
+       "name": "Whitney T.",
+       "pts": 47
+      },
+      {
+       "name": "Sarah",
+       "pts": 35
+      },
+      {
+       "name": "Drew",
+       "pts": 32
+      },
+      {
+       "name": "Chelsea Z.",
+       "pts": 28
+      }
+     ],
+     "resultsImage": "cards/s1/20250612-1719_0.jpg",
+     "cards": [
+      {
+       "src": "cards/s1/20250608-2109_0.jpg",
+       "names": [
+        "Sam H."
+       ]
+      },
+      {
+       "src": "cards/s1/20250609-0921_0.jpg",
+       "names": [
+        "Chelsea Z."
+       ]
+      },
+      {
+       "src": "cards/s1/20250609-0921_1.jpg",
+       "names": [
+        "Drew"
+       ]
+      },
+      {
+       "src": "cards/s1/20250609-0921_2.jpg",
+       "names": [
+        "Sarah"
+       ]
+      }
+     ]
+    },
+    {
+     "week": "3",
+     "results": [
+      {
+       "name": "David K.",
+       "pts": 57
+      },
+      {
+       "name": "Sarah",
+       "pts": 51
+      },
+      {
+       "name": "Sam H.",
+       "pts": 50
+      },
+      {
+       "name": "Jasmine G.",
+       "pts": 45
+      },
+      {
+       "name": "Fraiser",
+       "pts": 44
+      },
+      {
+       "name": "Chad",
+       "pts": 36
+      },
+      {
+       "name": "Alec L.",
+       "pts": 34
+      },
+      {
+       "name": "Donovan B.",
+       "pts": 29
+      },
+      {
+       "name": "Aaron Z.",
+       "pts": 27
+      },
+      {
+       "name": "Eric C.",
+       "pts": 12
+      }
+     ],
+     "resultsImage": "cards/s1/20250617-2113_0.jpg",
+     "cards": [
+      {
+       "src": "cards/s1/20250615-1512_0.jpg",
+       "names": [
+        "Eric C."
+       ]
+      },
+      {
+       "src": "cards/s1/20250615-1536_0.jpg",
+       "names": [
+        "Aaron Z."
+       ]
+      },
+      {
+       "src": "cards/s1/20250615-1646_0.jpg",
+       "names": [
+        "Alec L."
+       ]
+      },
+      {
+       "src": "cards/s1/20250615-1921_0.jpg",
+       "names": [
+        "Chad"
+       ]
+      },
+      {
+       "src": "cards/s1/20250615-1926_0.jpg",
+       "names": [
+        "David K.",
+        "Sam H."
+       ]
+      },
+      {
+       "src": "cards/s1/20250615-1928_0.jpg",
+       "names": [
+        "Donovan B."
+       ]
+      },
+      {
+       "src": "cards/s1/20250615-2141_0.jpg",
+       "names": [
+        "Jasmine G."
+       ]
+      },
+      {
+       "src": "cards/s1/20250615-2141_1.jpg",
+       "names": [
+        "Sarah"
+       ]
+      },
+      {
+       "src": "cards/s1/20250615-2141_2.jpg",
+       "names": [
+        "Fraiser"
+       ]
+      }
+     ]
+    },
+    {
+     "week": "4",
+     "results": [
+      {
+       "name": "David K.",
+       "pts": 30
+      },
+      {
+       "name": "Sam H.",
+       "pts": 29
+      },
+      {
+       "name": "Whitney T.",
+       "pts": 29
+      },
+      {
+       "name": "Fraiser",
+       "pts": 28
+      },
+      {
+       "name": "Babs H.",
+       "pts": 27
+      },
+      {
+       "name": "Aaron Z.",
+       "pts": 27
+      },
+      {
+       "name": "Leah",
+       "pts": 23
+      },
+      {
+       "name": "Guy",
+       "pts": 20
+      },
+      {
+       "name": "Tracey",
+       "pts": 19
+      },
+      {
+       "name": "Isaac",
+       "pts": -30
+      }
+     ],
+     "resultsImage": "cards/s1/20250628-1053_0.jpg"
+    },
+    {
+     "week": "5",
+     "results": [
+      {
+       "name": "Kent",
+       "pts": 46
+      },
+      {
+       "name": "Chad",
+       "pts": 43
+      },
+      {
+       "name": "Whitney T.",
+       "pts": 40
+      },
+      {
+       "name": "David K.",
+       "pts": 35
+      },
+      {
+       "name": "Sarah",
+       "pts": 24
+      },
+      {
+       "name": "Fraiser",
+       "pts": 23
+      },
+      {
+       "name": "Alec L.",
+       "pts": 22
+      },
+      {
+       "name": "Miranda B.",
+       "pts": 17
+      },
+      {
+       "name": "David",
+       "pts": 8
+      }
+     ],
+     "resultsImage": "cards/s1/20250704-1233_0.jpg",
+     "note": "Chad's image is titled \"Week 4\", but it was posted a week after the Week 4 results with \"Congrats to Kent on winning last week\"."
+    },
+    {
+     "week": "6",
+     "results": [
+      {
+       "name": "Chad",
+       "pts": 95
+      },
+      {
+       "name": "Aaron Z.",
+       "pts": 75
+      },
+      {
+       "name": "Jim D.",
+       "pts": 60
+      },
+      {
+       "name": "Kent",
+       "pts": 56
+      },
+      {
+       "name": "Sam H.",
+       "pts": 53
+      },
+      {
+       "name": "Michelle",
+       "pts": 48
+      },
+      {
+       "name": "Sarah",
+       "pts": 48
+      },
+      {
+       "name": "Jasmine G.",
+       "pts": 48
+      },
+      {
+       "name": "Gregg",
+       "pts": 41
+      },
+      {
+       "name": "Simara M.",
+       "pts": 40
+      },
+      {
+       "name": "Alec L.",
+       "pts": 34
+      },
+      {
+       "name": "Sam Also",
+       "pts": 27
+      },
+      {
+       "name": "Fraiser",
+       "pts": 21
+      },
+      {
+       "name": "Cheyenne",
+       "pts": 19
+      },
+      {
+       "name": "Abby",
+       "pts": 11
+      }
+     ],
+     "resultsImage": "cards/s1/20250706-1206_0.jpg",
+     "cards": [
+      {
+       "src": "cards/s1/20250705-2305_0.jpg",
+       "names": [
+        "Sam H."
+       ]
+      }
+     ]
+    },
+    {
+     "week": "7",
+     "results": [
+      {
+       "name": "Whitney T.",
+       "pts": 69
+      },
+      {
+       "name": "Jasmine G.",
+       "pts": 50
+      },
+      {
+       "name": "Sarah",
+       "pts": 50
+      },
+      {
+       "name": "Chad",
+       "pts": 49
+      },
+      {
+       "name": "Sam H.",
+       "pts": 42
+      },
+      {
+       "name": "Alec L.",
+       "pts": 32
+      },
+      {
+       "name": "Kent",
+       "pts": 31
+      },
+      {
+       "name": "Fraiser",
+       "pts": 29
+      }
+     ],
+     "resultsImage": "cards/s1/20250714-1006_0.jpg"
+    },
+    {
+     "week": "8",
+     "results": [
+      {
+       "name": "Sam H.",
+       "pts": 53
+      },
+      {
+       "name": "Chad",
+       "pts": 49
+      },
+      {
+       "name": "Whitney T.",
+       "pts": 42
+      },
+      {
+       "name": "Drew",
+       "pts": 42
+      },
+      {
+       "name": "Chelsea Z.",
+       "pts": 39
+      },
+      {
+       "name": "Alec L.",
+       "pts": 34
+      },
+      {
+       "name": "Jim D.",
+       "pts": 25
+      },
+      {
+       "name": "John M.",
+       "pts": 19
+      },
+      {
+       "name": "Alena D.",
+       "pts": 17
+      },
+      {
+       "name": "Boyd",
+       "pts": 4
+      }
+     ],
+     "resultsImage": "cards/s1/20250726-1205_0.jpg"
+    },
+    {
+     "week": "9",
+     "results": [
+      {
+       "name": "Sam H.",
+       "pts": 57
+      },
+      {
+       "name": "Chelsea Z.",
+       "pts": 48
+      },
+      {
+       "name": "David K.",
+       "pts": 45
+      },
+      {
+       "name": "Whitney T.",
+       "pts": 42
+      },
+      {
+       "name": "Alec L.",
+       "pts": 38
+      },
+      {
+       "name": "Chad",
+       "pts": 37
+      },
+      {
+       "name": "Simara M.",
+       "pts": 29
+      },
+      {
+       "name": "Grace",
+       "pts": 17
+      },
+      {
+       "name": "Kent",
+       "pts": 16
+      }
+     ],
+     "resultsImage": "cards/s1/20250731-1444_0.jpg"
+    },
+    {
+     "week": "10",
+     "results": [
+      {
+       "name": "David K.",
+       "pts": 55
+      },
+      {
+       "name": "Sarah",
+       "pts": 34
+      },
+      {
+       "name": "Matt",
+       "pts": 33
+      },
+      {
+       "name": "Whitney T.",
+       "pts": 33
+      },
+      {
+       "name": "Chad",
+       "pts": 33
+      },
+      {
+       "name": "Jeremy L.",
+       "pts": 24
+      },
+      {
+       "name": "Carrie",
+       "pts": 23
+      }
+     ],
+     "resultsImage": "cards/s1/20250818-1559_0.jpg",
+     "cards": [
+      {
+       "src": "cards/s1/20250802-2017_0.jpg",
+       "names": [
+        "Matt",
+        "Whitney T."
+       ]
+      },
+      {
+       "src": "cards/s1/20250802-2017_1.jpg",
+       "names": [
+        "David K."
+       ]
+      },
+      {
+       "src": "cards/s1/20250802-2017_2.jpg",
+       "names": [
+        "Whitney T."
+       ]
+      },
+      {
+       "src": "cards/s1/20250802-2017_3.jpg",
+       "names": [
+        "Sarah"
+       ]
+      },
+      {
+       "src": "cards/s1/20250802-2017_4.jpg",
+       "names": [
+        "Chad",
+        "Whitney T."
+       ]
+      }
+     ]
+    },
+    {
+     "week": "11",
+     "results": [
+      {
+       "name": "Sam H.",
+       "pts": 52
+      },
+      {
+       "name": "David K.",
+       "pts": 48
+      },
+      {
+       "name": "Kara K.",
+       "pts": 47
+      },
+      {
+       "name": "Chelsea Z.",
+       "pts": 44
+      },
+      {
+       "name": "Sarah",
+       "pts": 42
+      },
+      {
+       "name": "Whitney T.",
+       "pts": 41
+      },
+      {
+       "name": "Jasmine G.",
+       "pts": 36
+      },
+      {
+       "name": "Drew",
+       "pts": 33
+      },
+      {
+       "name": "Fraiser",
+       "pts": 32
+      },
+      {
+       "name": "Aaron Z.",
+       "pts": 25
+      },
+      {
+       "name": "Chad",
+       "pts": 22
+      }
+     ],
+     "resultsImage": "cards/s1/20250818-1559_1.jpg",
+     "cards": [
+      {
+       "src": "cards/s1/20250811-1257_0.jpg",
+       "names": [
+        "Aaron Z.",
+        "Chad"
+       ]
+      },
+      {
+       "src": "cards/s1/20250811-1257_1.jpg",
+       "names": [
+        "Chelsea Z.",
+        "David K."
+       ]
+      },
+      {
+       "src": "cards/s1/20250811-1257_2.jpg",
+       "names": [
+        "Drew",
+        "Fraiser"
+       ]
+      },
+      {
+       "src": "cards/s1/20250811-1257_3.jpg",
+       "names": [
+        "Jasmine G.",
+        "Kara K."
+       ]
+      },
+      {
+       "src": "cards/s1/20250811-1257_4.jpg",
+       "names": [
+        "Sam H.",
+        "Whitney T.",
+        "Sarah"
+       ]
+      }
+     ]
+    },
+    {
+     "week": "12",
+     "results": [
+      {
+       "name": "David K.",
+       "pts": 54
+      },
+      {
+       "name": "Whitney T.",
+       "pts": 46
+      },
+      {
+       "name": "Sarah",
+       "pts": 45
+      },
+      {
+       "name": "Alec L.",
+       "pts": 40
+      },
+      {
+       "name": "Sam H.",
+       "pts": 39
+      },
+      {
+       "name": "Drew",
+       "pts": 32
+      }
+     ],
+     "resultsImage": "cards/s1/20250818-1559_2.jpg",
+     "cards": [
+      {
+       "src": "cards/s1/20250817-1925_0.jpg",
+       "names": [
+        "Alec L.",
+        "David K.",
+        "Sarah",
+        "Sam H.",
+        "Whitney T.",
+        "Drew"
+       ]
+      }
+     ]
+    }
+   ]
   }
  ]
 }

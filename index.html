@@ -117,6 +117,9 @@ h2 { margin: 0; font: 900 28px/1 var(--display); text-transform: uppercase; lett
 .past-row.first .rank { color: var(--mimosa); }
 .past-row .top3 { font-size: 24px; }
 details.before summary { cursor: pointer; font-weight: 700; padding: 6px 0; }
+.past-weeks { display: grid; gap: 10px; border-top: 1px solid var(--line); padding-top: 14px; }
+.past-weeks .week-row .pts { font: 900 24px/1 var(--display); }
+.past-h { margin: 0; font: 900 20px/1 var(--display); text-transform: uppercase; letter-spacing: .03em; }
 details.before[open] summary { margin-bottom: 6px; }
 
 button.wk { border: 0; font: inherit; font-size: 11px; cursor: pointer; }
@@ -124,6 +127,7 @@ button.wk:hover, button.wk:focus-visible { outline: 2px solid var(--mimosa); out
 button.week-row { width: 100%; border: 0; border-bottom: 1px solid var(--line); background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
 button.week-row:hover { background: var(--surface-2); }
 .hint { font-size: 13px; color: var(--muted); margin: 0; }
+.hint a { color: var(--ink); font-weight: 700; }
 
 dialog.detail { border: 0; border-radius: var(--radius); padding: 0; width: min(640px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); background: var(--surface); color: var(--ink); box-shadow: 0 20px 60px rgba(0,0,0,.35); }
 dialog.detail::backdrop { background: rgba(10, 20, 14, .6); }
@@ -412,7 +416,8 @@ dialog.detail::backdrop { background: rgba(10, 20, 14, .6); }
         h("div", { class: "row spread" }, h("h2", { text: `Season ${s.season}` }), h("span", { class: "sub", style: "font-size:13px", text: s.dates })),
         h("div", {}, pastTable(s.final, withPts)),
         s.note ? h("p", { class: "sub", style: "font-size:13px", text: s.note }) : null,
-        s.before ? h("details", { class: "before" }, h("summary", { text: s.beforeNote || "Before the finale" }), pastTable(s.before, true)) : null);
+        s.before ? h("details", { class: "before" }, h("summary", { text: s.beforeNote || "Before the finale" }), pastTable(s.before, true)) : null,
+        (() => { const box = h("div", { class: "past-weeks" }); pastWeeks(s, box); return box; })());
     }));
   }
 
@@ -425,18 +430,29 @@ dialog.detail::backdrop { background: rgba(10, 20, 14, .6); }
   }
   loadPast();
 
+  const safeSrc = src => /^cards\/[\w\/-]+\.jpg$/.test(src);
+  const photos = (srcs, alt) => h("div", { class: "card-photos" }, srcs.map((src, i) => h("a", { href: src, target: "_blank", rel: "noopener" },
+    h("img", { src, alt: alt + (srcs.length > 1 ? ` (photo ${i + 1})` : ""), loading: "lazy" }))));
+  const weekName = label => /^\d+[ab]?$/.test(label) ? `Week ${label}` : label;
+
+  function showDetail(title, sub, ...body) {
+    $("detailTitle").textContent = title;
+    $("detailSub").textContent = sub;
+    $("detailBody").replaceChildren(...body.filter(Boolean));
+    const dlg = $("detail");
+    if (!dlg.open) dlg.showModal();
+    dlg.scrollTop = 0;
+  }
+
   function openDetail(pid, wk) {
     const w = season(pid).weeks.find(x => x.week === wk);
     if (!w) return;
     const date = data.brunches[wk]?.date;
-    $("detailTitle").textContent = data.players[pid].name;
-    $("detailSub").textContent = `Season ${data.season} · Week ${wk}` + (date ? " · " + new Date(date + "T12:00").toLocaleDateString(undefined, { month: "long", day: "numeric" }) : "");
-    const cards = (w.s.cards || []).filter(src => /^cards\/[\w\/-]+\.jpg$/.test(src));
+    const cards = (w.s.cards || []).filter(safeSrc);
     const lines = tallyLines(w.c);
-    $("detailBody").replaceChildren(
-      cards.length
-        ? h("div", { class: "card-photos" }, cards.map((src, i) => h("a", { href: src, target: "_blank", rel: "noopener" },
-            h("img", { src, alt: `${data.players[pid].name}'s week ${wk} scorecard${cards.length > 1 ? ` (photo ${i + 1})` : ""}`, loading: "lazy" }))))
+    showDetail(data.players[pid].name,
+      `Season ${data.season} · Week ${wk}` + (date ? " · " + new Date(date + "T12:00").toLocaleDateString(undefined, { month: "long", day: "numeric" }) : ""),
+      cards.length ? photos(cards, `${data.players[pid].name}'s week ${wk} scorecard`)
         : h("p", { class: "notice", text: w.c.attended ? "No photo of this card yet." : "No card: bonus points only (organizer or referral)." }),
       cards.length > 1 ? h("p", { class: "hint", text: "This card shows up in more than one photo. Tap a photo to open it full size." })
         : cards.length ? h("p", { class: "hint", text: "Tap the photo to open it full size. Several cards can share one photo." }) : null,
@@ -447,9 +463,52 @@ dialog.detail::backdrop { background: rgba(10, 20, 14, .6); }
         h("tr", { class: "total" }, h("td", { colspan: 2, text: "Total" }), h("td", { class: "pts num", text: fmt(w.pts) })))),
       w.s.notes ? h("p", { class: "hint", text: "Scorer's note: " + w.s.notes }) : null,
       h("p", { class: "hint", text: "Count looks wrong? Tell Dave and it gets fixed." }));
-    const dlg = $("detail");
-    if (!dlg.open) dlg.showModal();
-    dlg.scrollTop = 0;
+  }
+
+  // Past seasons: Chad's posted weekly totals plus whatever card photos made it to the GroupMe.
+  function pastPeople(w) {
+    const people = new Map();
+    for (const r of w.results || []) people.set(r.name, { name: r.name, pts: r.pts, cards: [] });
+    for (const c of w.cards || []) for (const name of c.names) {
+      if (!people.has(name)) people.set(name, { name, pts: null, cards: [] });
+      people.get(name).cards.push(c);
+    }
+    return [...people.values()].sort((a, b) => (b.pts ?? -Infinity) - (a.pts ?? -Infinity) || a.name.localeCompare(b.name));
+  }
+
+  function openPastDetail(s, w, p) {
+    const srcs = p.cards.map(c => c.src).filter(safeSrc);
+    const others = [...new Set(p.cards.flatMap(c => c.names))].filter(n => n !== p.name);
+    showDetail(p.name, `Season ${s.season} · ${weekName(w.week)}`,
+      srcs.length ? photos(srcs, `${p.name}'s ${weekName(w.week)} scorecard`) : h("p", { class: "notice", text: "No photo of this card was posted in the GroupMe." }),
+      srcs.length ? h("p", { class: "hint", text: "Tap a photo to open it full size." + (others.length ? ` This photo also shows ${others.join(", ")}`.replace(/\.?$/, ".") : "") }) : null,
+      h("table", { class: "tally" }, h("tbody", {},
+        h("tr", { class: "total" }, h("td", { colspan: 2, text: "Week total" }),
+          h("td", { class: "pts num", text: p.pts == null ? "—" : fmt(p.pts) })))),
+      h("p", { class: "hint", text: p.pts == null ? "Chad didn't post points for this week. They'll be added from his season spreadsheet."
+        : "Official total from Chad's weekly results. The line-by-line tally gets added once Chad shares his season spreadsheet." }),
+      w.resultsImage && safeSrc(w.resultsImage) ? h("p", { class: "hint" }, h("a", { href: w.resultsImage, target: "_blank", rel: "noopener", text: "See Chad's posted results for this week" })) : null);
+  }
+
+  const pastPick = {};
+  function pastWeeks(s, box) {
+    const weeks = s.weeks || [];
+    if (!weeks.length) return box.replaceChildren();
+    const label = pastPick[s.season] ??= weeks[0].week;
+    const w = weeks.find(x => x.week === label);
+    const people = pastPeople(w);
+    box.replaceChildren(...[
+      h("h3", { class: "past-h", text: "Week by week" }),
+      h("div", { class: "weekpick", role: "group", "aria-label": `Season ${s.season} week` }, weeks.map(x =>
+        h("button", { "aria-pressed": String(x.week === label), onclick: () => { pastPick[s.season] = x.week; pastWeeks(s, box); } }, weekName(x.week)))),
+      w.winner ? h("p", { class: "sub", text: "Winner: " + w.winner }) : null,
+      w.note ? h("p", { class: "hint", text: w.note }) : null,
+      people.length ? h("div", {}, people.map(p => h("button", { class: "week-row", onclick: () => openPastDetail(s, w, p) },
+          h("div", { style: "min-width:0;display:grid;gap:4px" }, h("span", { class: "pname", text: p.name }),
+            h("div", { class: "chips" }, p.cards.length ? h("span", { class: "chip bonus", text: "card photo" }) : h("span", { class: "chip", text: "no photo" }))),
+          h("span", { class: "pts num", text: p.pts == null ? "—" : fmt(p.pts) }))))
+        : h("p", { class: "empty", text: "Only the winner was posted for this week." }),
+      !w.results && people.length ? h("p", { class: "hint", text: "Points for this week weren't posted. Tap a name to see their card." }) : null].filter(Boolean));
   }
   $("detailClose").addEventListener("click", () => $("detail").close());
   $("detail").addEventListener("click", e => { if (e.target === $("detail")) $("detail").close(); });
