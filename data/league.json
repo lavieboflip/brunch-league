@@ -2,7 +2,7 @@
  "season": 5,
  "currentWeek": 7,
  "weeks": 11,
- "updated": "2026-10-27T19:23",
+ "updated": "2026-11-02T17:47",
  "brunches": {
   "5": {
    "date": "2026-10-11",
@@ -924,6 +924,31 @@
    "notes": "found card posted Oct 21; week confirmed by Simara in GroupMe",
    "cards": [
     "cards/s5/2026-1021-1015-0.jpg"
+   ]
+  },
+  {
+   "week": 7,
+   "player": "liam-m",
+   "counts": {
+    "attended": true,
+    "rsvpOnTime": true,
+    "organized": false,
+    "late": false,
+    "holyGrail": false,
+    "kickedOut": false,
+    "referrals": 1,
+    "drinks": 21,
+    "shots": 2,
+    "shotsBought": 0,
+    "dishes": 1,
+    "sharkWeeks": 0,
+    "bars": 4,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "Drinks tally messy at the end: 4 groups of 5 plus 1-2 marks, recorded 21. Week assumed 7 (posted Nov 2, no week noted).",
+   "cards": [
+    "cards/s5/2026-1102-1745-0.jpg"
    ]
   }
  ]
