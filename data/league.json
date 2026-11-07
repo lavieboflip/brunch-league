@@ -2,7 +2,7 @@
  "season": 5,
  "currentWeek": 7,
  "weeks": 11,
- "updated": "2026-11-02T17:47",
+ "updated": "2026-11-07T14:47",
  "brunches": {
   "5": {
    "date": "2026-10-11",
@@ -924,6 +924,56 @@
    "notes": "found card posted Oct 21; week confirmed by Simara in GroupMe",
    "cards": [
     "cards/s5/2026-1021-1015-0.jpg"
+   ]
+  },
+  {
+   "week": 7,
+   "player": "alec-l",
+   "counts": {
+    "attended": true,
+    "rsvpOnTime": true,
+    "organized": false,
+    "late": false,
+    "holyGrail": false,
+    "kickedOut": false,
+    "referrals": 0,
+    "drinks": 7,
+    "shots": 1,
+    "shotsBought": 0,
+    "dishes": 2,
+    "sharkWeeks": 0,
+    "bars": 1,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "Week assumed 7 (posted Nov 7, no week noted). Drinks: 6 strokes + diagonal, read as 7 (could be 6). 1 stroke under Shots Taken may be a stray line from the diagonal. Stray pencil loop over Shark Weeks",
+   "cards": [
+    "cards/s5/2026-1107-1434-0.jpg"
+   ]
+  },
+  {
+   "week": 7,
+   "player": "chad",
+   "counts": {
+    "attended": true,
+    "rsvpOnTime": true,
+    "organized": false,
+    "late": false,
+    "holyGrail": false,
+    "kickedOut": false,
+    "referrals": 0,
+    "drinks": 18,
+    "shots": 5,
+    "shotsBought": 3,
+    "dishes": 3,
+    "sharkWeeks": 0,
+    "bars": 3,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "Week assumed 7 (posted Nov 7, no week noted). Drinks crossed by one long line, read as 3 groups of 5 + 3  18 (could be 16-18). '+10 costume' written on card, not a scoring category, not recorded.",
+   "cards": [
+    "cards/s5/2026-1107-1434-0.jpg"
    ]
   },
   {
