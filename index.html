@@ -388,12 +388,15 @@ dialog.detail::backdrop { background: rgba(10, 20, 14, .6); }
     $("weekPick").replaceChildren(...Array.from({ length: Math.max(data.currentWeek, ...weeksWithScores) }, (_, i) => i + 1).map(w =>
       h("button", { "aria-pressed": String(w === week), onclick: () => { week = w; renderWeeks(); } }, `Week ${w}`)));
     const date = data.brunches[week]?.date;
+    const hosts = (data.brunches[week]?.hosts || []).map(id => data.players[id]?.name).filter(Boolean);
+    const about = [date && new Date(date + "T12:00").toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" }),
+      data.brunches[week]?.finale && "Season finale", hosts.length && "Hosted by " + hosts.join(" & ")].filter(Boolean).join(" · ");
     const rows = Object.keys(data.players).map(id => ({ id, name: data.players[id].name, wk: season(id).weeks.find(x => x.week === week) }))
       .filter(r => r.wk).sort((a, b) => b.wk.pts - a.wk.pts);
     const list = $("weekList");
     if (!rows.length) { list.replaceChildren(h("p", { class: "empty", text: `No scores for week ${week} yet.` })); return; }
     list.replaceChildren(
-      date ? h("p", { class: "sub", text: new Date(date + "T12:00").toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" }) }) : null,
+      about ? h("p", { class: "sub", text: about }) : null,
       ...rows.map(r => {
         const c = r.wk.c;
         const chips = FIELDS.filter(([k, , t]) => t === "num" ? n(c[k]) > 0 : c[k]).map(([k, label, t]) =>
@@ -538,7 +541,8 @@ dialog.detail::backdrop { background: rgba(10, 20, 14, .6); }
       if (!r.ok) throw new Error(r.status);
       data = await r.json();
       $("loadError").hidden = true;
-      $("seasonLabel").textContent = `Season ${data.season} · Week ${data.currentWeek} of ${data.weeks}`;
+      const finale = Object.keys(data.brunches).find(w => data.brunches[w].finale);
+      $("seasonLabel").textContent = `Season ${data.season} · Week ${data.currentWeek}` + (finale ? ` · Finale is week ${finale}` : "");
       $("updated").textContent = "Updated " + new Date(data.updated).toLocaleString(undefined, { weekday: "short", hour: "numeric", minute: "2-digit" });
       renderStandings(); renderWeeks();
     } catch (e) { if (!data) $("loadError").hidden = false; }
