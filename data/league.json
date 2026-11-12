@@ -1,36 +1,72 @@
 {
  "season": 5,
- "currentWeek": 7,
+ "currentWeek": 9,
  "weeks": 11,
- "updated": "2026-11-07T14:47",
+ "updated": "2026-11-11T23:06",
  "brunches": {
-  "5": {
-   "date": "2026-10-11",
-   "multiplier": 1
-  },
   "1": {
    "date": "2026-09-13",
-   "multiplier": 1
-  },
-  "7": {
-   "date": "2026-10-25",
-   "multiplier": 1
-  },
-  "6": {
-   "date": "2026-10-18",
-   "multiplier": 1
+   "multiplier": 1,
+   "hosts": [
+    "chad"
+   ]
   },
   "2": {
    "date": "2026-09-20",
-   "multiplier": 1
-  },
-  "4": {
-   "date": "2026-10-04",
-   "multiplier": 1
+   "multiplier": 1,
+   "hosts": [
+    "david-k"
+   ]
   },
   "3": {
    "date": "2026-09-27",
-   "multiplier": 1
+   "multiplier": 1,
+   "hosts": [
+    "david-k"
+   ]
+  },
+  "4": {
+   "date": "2026-10-04",
+   "multiplier": 1,
+   "hosts": [
+    "chad"
+   ]
+  },
+  "5": {
+   "date": "2026-10-11",
+   "multiplier": 1,
+   "hosts": [
+    "andrea-g"
+   ]
+  },
+  "6": {
+   "date": "2026-10-18",
+   "multiplier": 1,
+   "hosts": [
+    "david-k"
+   ]
+  },
+  "7": {
+   "date": "2026-10-25",
+   "multiplier": 1,
+   "hosts": [
+    "david-k"
+   ]
+  },
+  "8": {
+   "date": "2026-11-01",
+   "multiplier": 1,
+   "hosts": [
+    "chad"
+   ]
+  },
+  "9": {
+   "date": "2026-11-08",
+   "multiplier": 1,
+   "hosts": [
+    "bee",
+    "miranda-b"
+   ]
   }
  },
  "players": {
@@ -84,6 +120,12 @@
   },
   "whitney-t": {
    "name": "Whitney T."
+  },
+  "bee": {
+   "name": "Bee"
+  },
+  "hunter-h": {
+   "name": "Hunter H."
   }
  },
  "scores": [
@@ -927,7 +969,7 @@
    ]
   },
   {
-   "week": 7,
+   "week": 8,
    "player": "alec-l",
    "counts": {
     "attended": true,
@@ -946,18 +988,18 @@
     "yellowCards": 0
    },
    "source": "photo",
-   "notes": "Week assumed 7 (posted Nov 7, no week noted). Drinks: 6 strokes + diagonal, read as 7 (could be 6). 1 stroke under Shots Taken may be a stray line from the diagonal. Stray pencil loop over Shark Weeks",
+   "notes": "Week 8 (Nov 1) (posted Nov 7, no week noted). Drinks: 6 strokes + diagonal, read as 7 (could be 6). 1 stroke under Shots Taken may be a stray line from the diagonal. Stray pencil loop over Shark Weeks",
    "cards": [
     "cards/s5/2026-1107-1434-0.jpg"
    ]
   },
   {
-   "week": 7,
+   "week": 8,
    "player": "chad",
    "counts": {
     "attended": true,
     "rsvpOnTime": true,
-    "organized": false,
+    "organized": true,
     "late": false,
     "holyGrail": false,
     "kickedOut": false,
@@ -971,13 +1013,13 @@
     "yellowCards": 0
    },
    "source": "photo",
-   "notes": "Week assumed 7 (posted Nov 7, no week noted). Drinks crossed by one long line, read as 3 groups of 5 + 3  18 (could be 16-18). '+10 costume' written on card, not a scoring category, not recorded.",
+   "notes": "Week 8 (Nov 1) (posted Nov 7, no week noted). Drinks crossed by one long line, read as 3 groups of 5 + 3  18 (could be 16-18). '+10 costume' written on card, not a scoring category, not recorded.",
    "cards": [
     "cards/s5/2026-1107-1434-0.jpg"
    ]
   },
   {
-   "week": 7,
+   "week": 8,
    "player": "liam-m",
    "counts": {
     "attended": true,
@@ -996,9 +1038,134 @@
     "yellowCards": 0
    },
    "source": "photo",
-   "notes": "Drinks tally messy at the end: 4 groups of 5 plus 1-2 marks, recorded 21. Week assumed 7 (posted Nov 2, no week noted).",
+   "notes": "Drinks tally messy at the end: 4 groups of 5 plus 1-2 marks, recorded 21. Week 8 (Nov 1) (posted Nov 2, no week noted).",
    "cards": [
     "cards/s5/2026-1102-1745-0.jpg"
+   ]
+  },
+  {
+   "week": 9,
+   "player": "bee",
+   "counts": {
+    "attended": true,
+    "rsvpOnTime": true,
+    "organized": true,
+    "late": false,
+    "holyGrail": false,
+    "kickedOut": false,
+    "referrals": 0,
+    "drinks": 6,
+    "shots": 1,
+    "shotsBought": 3,
+    "dishes": 3,
+    "sharkWeeks": 0,
+    "bars": 2,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "card signed 'Brittany'(?), posted by B\u00b2; tapped out",
+   "cards": [
+    "cards/s5/2026-1108-1848-0.jpg"
+   ]
+  },
+  {
+   "week": 9,
+   "player": "hunter-h",
+   "counts": {
+    "attended": true,
+    "rsvpOnTime": true,
+    "organized": false,
+    "late": false,
+    "holyGrail": false,
+    "kickedOut": false,
+    "referrals": 0,
+    "drinks": 5,
+    "shots": 0,
+    "shotsBought": 0,
+    "dishes": 2,
+    "sharkWeeks": 0,
+    "bars": 1,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "tapped out",
+   "cards": [
+    "cards/s5/2026-1108-1703-0.jpg"
+   ]
+  },
+  {
+   "week": 9,
+   "player": "jasmine-g",
+   "counts": {
+    "attended": true,
+    "rsvpOnTime": true,
+    "organized": false,
+    "late": false,
+    "holyGrail": false,
+    "kickedOut": false,
+    "referrals": 0,
+    "drinks": 6,
+    "shots": 1,
+    "shotsBought": 0,
+    "dishes": 2,
+    "sharkWeeks": 0,
+    "bars": 1,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "tapped out",
+   "cards": [
+    "cards/s5/2026-1108-1853-0.jpg"
+   ]
+  },
+  {
+   "week": 9,
+   "player": "liam-m",
+   "counts": {
+    "attended": true,
+    "rsvpOnTime": true,
+    "organized": false,
+    "late": false,
+    "holyGrail": false,
+    "kickedOut": false,
+    "referrals": 0,
+    "drinks": 20,
+    "shots": 10,
+    "shotsBought": 0,
+    "dishes": 1,
+    "sharkWeeks": 0,
+    "bars": 1,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "tapped out",
+   "cards": [
+    "cards/s5/2026-1108-2331-0.jpg"
+   ]
+  },
+  {
+   "week": 9,
+   "player": "sarah",
+   "counts": {
+    "attended": true,
+    "rsvpOnTime": true,
+    "organized": false,
+    "late": false,
+    "holyGrail": false,
+    "kickedOut": false,
+    "referrals": 0,
+    "drinks": 12,
+    "shots": 1,
+    "shotsBought": 0,
+    "dishes": 5,
+    "sharkWeeks": 0,
+    "bars": 2,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "dishes tally unclear, 4 or 5; tapped out (8:40pm written)",
+   "cards": [
+    "cards/s5/2026-1108-2035-0.jpg"
    ]
   }
  ]
