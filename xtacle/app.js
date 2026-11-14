@@ -330,6 +330,11 @@ function viewPublish(){
       <div class="field"><label class="lbl" for="tok">Token</label><input id="tok" type="password" autocomplete="off" placeholder="${token?'Saved · paste to replace':'github_pat_…'}"></div>
       <div class="row"><button class="primary" id="tok-save">Save token &amp; publish</button>${token?'<button id="tok-clear">Remove token</button>':''}</div>
     </div>
+    <div class="panel">
+      <h3>Start over</h3>
+      <p class="note">Clears the roster, pools, scores and bracket, here and on the player page. Use it after a test run. Your token stays saved.</p>
+      <div class="row"><button id="reset">Start over</button></div>
+    </div>
   </div>`;
 }
 /* ---------- player page: my matches ---------- */
@@ -393,7 +398,7 @@ function viewMe(){
 let rosterTimer=null;
 document.addEventListener('input',e=>{
   if(ADMIN&&e.target.id==='roster'){state.roster=e.target.value;updateSetupSide();clearTimeout(rosterTimer);
-    rosterTimer=setTimeout(()=>{state.updatedAt=Date.now();saveLocal();schedulePublish(5000)},700);}
+    rosterTimer=setTimeout(()=>{state.updatedAt=Date.now();saveLocal();schedulePublish()},700);}
 });
 document.addEventListener('change',e=>{
   const t=e.target;
@@ -420,6 +425,7 @@ document.addEventListener('click',e=>{
   if(b.id==='unlock'){const go=()=>{state.bracket=null;commit()};
     if(state.bracket&&Object.keys(state.bracket.res).length)twoStep(b,'Tap again: clears bracket scores',go);else go();return}
   if(b.id==='pub-now'){publish();return}
+  if(b.id==='reset'){twoStep(b,'Tap again: erase everything',()=>{state=blank();location.hash='setup';commit();});return}
   if(b.id==='tok-save'){const v=$('#tok').value.trim();if(!v)return;token=v;lsSet(TOKEN_KEY,v);sha=undefined;pubErr='';render();publish();return}
   if(b.id==='tok-clear'){token=null;lsSet(TOKEN_KEY,null);setStatus('notoken');render();return}
   if(b.id==='pull'){twoStep(b,'Tap again: replaces this browser’s copy',async()=>{
