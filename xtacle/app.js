@@ -135,19 +135,32 @@ async function putState(retry){
   if(!r.ok)throw new Error(await ghErr(r));
   sha=(await r.json()).content.sha;
 }
+/* GitHub Pages cancels a running site rebuild whenever a newer commit lands,
+   and a rebuild takes about 30 s. Publishing more often than MIN_GAP would
+   keep cancelling rebuilds and the player page would never update, so
+   changes are batched into at most one commit per MIN_GAP. */
+const MIN_GAP=45000;
+let pubDue=0,countdown=null;
 function schedulePublish(delay){
   if(!token){setStatus('notoken');return}
-  setStatus('pending');clearTimeout(pubTimer);pubTimer=setTimeout(publish,delay==null?2500:delay);
+  const wait=Math.max(delay==null?2500:delay,lastPub+MIN_GAP-Date.now());
+  pubDue=Date.now()+wait;clearTimeout(pubTimer);pubTimer=setTimeout(publish,wait);
+  showPending();
+}
+function showPending(){
+  clearInterval(countdown);
+  const tick=()=>{const s=Math.ceil((pubDue-Date.now())/1000);if(s<=0||publishing){clearInterval(countdown);return}setStatus('pending','sends in '+s+'s');};
+  tick();countdown=setInterval(tick,1000);
 }
 async function publish(){
   if(!token){setStatus('notoken');return}
   if(publishing){again=true;return}
-  publishing=true;clearTimeout(pubTimer);setStatus('saving');
+  publishing=true;clearTimeout(pubTimer);clearInterval(countdown);setStatus('saving');
   try{await putState(true);lastPub=Date.now();pubErr='';setStatus('published',ago(lastPub));}
   catch(e){pubErr=e.message||'Network error. Check the connection.';setStatus('error');}
   publishing=false;
   if(tab()==='publish')render();
-  if(again){again=false;publish();}
+  if(again){again=false;schedulePublish();}
 }
 function commit(){state.updatedAt=Date.now();saveLocal();render();schedulePublish();}
 window.addEventListener('beforeunload',e=>{if(ADMIN&&(publishing||pubTimer&&$('#status').dataset.s==='pending')){e.preventDefault();e.returnValue='';}});
@@ -313,7 +326,7 @@ function viewPublish(){
     <div class="panel">
       <h3>Player page</h3>
       <p><b>${esc(site)}</b></p>
-      <p class="note">Share that link or turn it into a QR code. Changes show up there about a minute after you make them, once GitHub Pages rebuilds.</p>
+      <p class="note">Share that link or turn it into a QR code. Changes go out in batches, at most one every 45 seconds, so GitHub has time to rebuild the site between them. Expect a score to reach the player page within about 1–2 minutes.</p>
       <h3 style="margin-top:18px">Status</h3>
       <p>${!token?'No token yet. Nothing is being published.':pubErr?`<span class="note warn">${esc(pubErr)}</span>`:lastPub?'Last published '+ago(lastPub)+'.':'Ready. The next change will publish.'}</p>
       <div class="row"><button class="primary" id="pub-now" ${token?'':'disabled'}>Publish now</button><button id="pull">Load the published copy</button></div>
