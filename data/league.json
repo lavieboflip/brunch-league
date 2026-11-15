@@ -1,8 +1,8 @@
 {
  "season": 5,
- "currentWeek": 9,
+ "currentWeek": 10,
  "weeks": 11,
- "updated": "2026-11-11T23:06",
+ "updated": "2026-11-15T18:47",
  "brunches": {
   "1": {
    "date": "2026-09-13",
@@ -65,7 +65,18 @@
    "multiplier": 1,
    "hosts": [
     "bee",
-    "miranda-b"
+    "miranda-b",
+    "liam-m"
+   ],
+   "extraDates": [
+    "2026-11-13"
+   ]
+  },
+  "10": {
+   "date": "2026-11-15",
+   "multiplier": 1,
+   "hosts": [
+    "sarah"
    ]
   }
  },
@@ -1124,7 +1135,7 @@
    "counts": {
     "attended": true,
     "rsvpOnTime": true,
-    "organized": false,
+    "organized": true,
     "late": false,
     "holyGrail": false,
     "kickedOut": false,
@@ -1166,6 +1177,132 @@
    "notes": "dishes tally unclear, 4 or 5; tapped out (8:40pm written)",
    "cards": [
     "cards/s5/2026-1108-2035-0.jpg"
+   ]
+  },
+  {
+   "week": 10,
+   "player": "alec-l",
+   "counts": {
+    "attended": true,
+    "rsvpOnTime": true,
+    "organized": false,
+    "late": false,
+    "holyGrail": false,
+    "kickedOut": false,
+    "referrals": 0,
+    "drinks": 7,
+    "shots": 0,
+    "shotsBought": 0,
+    "dishes": 1,
+    "sharkWeeks": 0,
+    "bars": 0,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "tapped out; drink tally a bit messy, read as 7",
+   "cards": [
+    "cards/s5/2026-1115-1842-4.jpg"
+   ]
+  },
+  {
+   "week": 10,
+   "player": "hunter-h",
+   "counts": {
+    "attended": true,
+    "rsvpOnTime": true,
+    "organized": false,
+    "late": false,
+    "holyGrail": false,
+    "kickedOut": false,
+    "referrals": 0,
+    "drinks": 10,
+    "shots": 0,
+    "shotsBought": 0,
+    "dishes": 1,
+    "sharkWeeks": 0,
+    "bars": 0,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "tapped out; said in chat he'd be a little late but no Late on card",
+   "cards": [
+    "cards/s5/2026-1115-1842-3.jpg"
+   ]
+  },
+  {
+   "week": 10,
+   "player": "sarah",
+   "counts": {
+    "attended": true,
+    "rsvpOnTime": true,
+    "organized": true,
+    "late": false,
+    "holyGrail": false,
+    "kickedOut": false,
+    "referrals": 0,
+    "drinks": 10,
+    "shots": 0,
+    "shotsBought": 0,
+    "dishes": 1,
+    "sharkWeeks": 0,
+    "bars": 1,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "tapped out",
+   "cards": [
+    "cards/s5/2026-1115-1842-1.jpg",
+    "cards/s5/2026-1115-1842-0.jpg"
+   ]
+  },
+  {
+   "week": 10,
+   "player": "simara-m",
+   "counts": {
+    "attended": true,
+    "rsvpOnTime": true,
+    "organized": false,
+    "late": false,
+    "holyGrail": false,
+    "kickedOut": false,
+    "referrals": 0,
+    "drinks": 11,
+    "shots": 0,
+    "shotsBought": 0,
+    "dishes": 1,
+    "sharkWeeks": 0,
+    "bars": 2,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "tapped out",
+   "cards": [
+    "cards/s5/2026-1115-1842-2.jpg"
+   ]
+  },
+  {
+   "week": 10,
+   "player": "whitney-t",
+   "counts": {
+    "attended": true,
+    "rsvpOnTime": true,
+    "organized": false,
+    "late": false,
+    "holyGrail": false,
+    "kickedOut": false,
+    "referrals": 0,
+    "drinks": 8,
+    "shots": 0,
+    "shotsBought": 0,
+    "dishes": 3,
+    "sharkWeeks": 0,
+    "bars": 1,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "tapped out",
+   "cards": [
+    "cards/s5/2026-1115-1842-0.jpg"
    ]
   }
  ]
