@@ -144,6 +144,9 @@
   },
   "drew-b": {
    "name": "Drew B."
+  },
+  "drew-z": {
+   "name": "Drew Z."
   }
  },
  "scores": [
@@ -1119,8 +1122,8 @@
     "holyGrail": false,
     "kickedOut": false,
     "referrals": 0,
-    "drinks": 11,
-    "shots": 9,
+    "drinks": 14,
+    "shots": 11,
     "shotsBought": 0,
     "dishes": 3,
     "sharkWeeks": 4,
@@ -1128,7 +1131,7 @@
     "yellowCards": 0
    },
    "source": "photo",
-   "notes": "signed card, identified as Connor by David; drinks about 11, shots about 9; tapped out",
+   "notes": "signed card, identified as Connor by David; drinks and shots per David; tapped out",
    "cards": [
     "cards/s5/2026-1116-2240-0.jpg"
    ]
