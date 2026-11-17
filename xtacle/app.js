@@ -128,7 +128,9 @@ async function fetchSha(){
 }
 async function putState(retry){
   if(sha===undefined)sha=await fetchSha();
-  const body={message:'Xtacle Invitational: update tournament',content:b64(JSON.stringify(state)),branch:GH.branch};
+  // Sign commits with GitHub's private noreply address so the public history never shows a real email.
+  const who={name:'lavieboflip',email:'346646370+lavieboflip@users.noreply.github.com'};
+  const body={message:'Xtacle Invitational: update tournament',content:b64(JSON.stringify(state)),branch:GH.branch,committer:who,author:who};
   if(sha)body.sha=sha;
   const r=await fetch(API,{method:'PUT',headers:Object.assign({'Content-Type':'application/json'},ghHeaders()),body:JSON.stringify(body)});
   if((r.status===409||r.status===422)&&retry){sha=undefined;return putState(false);}
