@@ -2,7 +2,7 @@
  "season": 5,
  "currentWeek": 10,
  "weeks": 11,
- "updated": "2026-11-16T22:48",
+ "updated": "2026-11-16T23:21",
  "brunches": {
   "1": {
    "date": "2026-09-13",
@@ -49,9 +49,7 @@
   "7": {
    "date": "2026-10-25",
    "multiplier": 1,
-   "hosts": [
-    "david-k"
-   ]
+   "hosts": []
   },
   "8": {
    "date": "2026-11-01",
@@ -137,6 +135,15 @@
   },
   "hunter-h": {
    "name": "Hunter H."
+  },
+  "brittany": {
+   "name": "Brittany"
+  },
+  "connor": {
+   "name": "Connor"
+  },
+  "drew-b": {
+   "name": "Drew B."
   }
  },
  "scores": [
@@ -1058,9 +1065,31 @@
    "week": 9,
    "player": "bee",
    "counts": {
+    "attended": false,
+    "rsvpOnTime": false,
+    "organized": true,
+    "late": false,
+    "holyGrail": false,
+    "kickedOut": false,
+    "referrals": 0,
+    "drinks": 0,
+    "shots": 0,
+    "shotsBought": 0,
+    "dishes": 0,
+    "sharkWeeks": 0,
+    "bars": 0,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "host bonus only; Bee's own card not posted yet"
+  },
+  {
+   "week": 9,
+   "player": "brittany",
+   "counts": {
     "attended": true,
     "rsvpOnTime": true,
-    "organized": true,
+    "organized": false,
     "late": false,
     "holyGrail": false,
     "kickedOut": false,
@@ -1074,9 +1103,34 @@
     "yellowCards": 0
    },
    "source": "photo",
-   "notes": "card signed 'Brittany'(?), posted by B\u00b2; tapped out",
+   "notes": "card signed Brittany, posted by Bee; tapped out",
    "cards": [
     "cards/s5/2026-1108-1848-0.jpg"
+   ]
+  },
+  {
+   "week": 9,
+   "player": "connor",
+   "counts": {
+    "attended": true,
+    "rsvpOnTime": true,
+    "organized": false,
+    "late": false,
+    "holyGrail": false,
+    "kickedOut": false,
+    "referrals": 0,
+    "drinks": 11,
+    "shots": 9,
+    "shotsBought": 0,
+    "dishes": 3,
+    "sharkWeeks": 4,
+    "bars": 0,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "signed card, identified as Connor by David; drinks about 11, shots about 9; tapped out",
+   "cards": [
+    "cards/s5/2026-1116-2240-0.jpg"
    ]
   },
   {
@@ -1099,7 +1153,32 @@
     "yellowCards": 0
    },
    "source": "photo",
-   "notes": "tapped out; drink tally messy, about 17",
+   "notes": "tapped out",
+   "cards": [
+    "cards/s5/2026-1116-2240-0.jpg"
+   ]
+  },
+  {
+   "week": 9,
+   "player": "drew-b",
+   "counts": {
+    "attended": true,
+    "rsvpOnTime": true,
+    "organized": false,
+    "late": false,
+    "holyGrail": false,
+    "kickedOut": false,
+    "referrals": 0,
+    "drinks": 10,
+    "shots": 5,
+    "shotsBought": 0,
+    "dishes": 0,
+    "sharkWeeks": 1,
+    "bars": 0,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "card says Drew; Drew B. per David",
    "cards": [
     "cards/s5/2026-1116-2240-0.jpg"
    ]
@@ -1249,7 +1328,7 @@
     "yellowCards": 0
    },
    "source": "photo",
-   "notes": "dishes tally unclear, 4 or 5; tapped out (8:40pm written)",
+   "notes": "tapped out (8:40pm written)",
    "cards": [
     "cards/s5/2026-1108-2035-0.jpg"
    ]
@@ -1299,7 +1378,7 @@
     "yellowCards": 0
    },
    "source": "photo",
-   "notes": "tapped out; drink tally a bit messy, read as 7",
+   "notes": "tapped out",
    "cards": [
     "cards/s5/2026-1115-1842-4.jpg"
    ]
@@ -1324,7 +1403,7 @@
     "yellowCards": 0
    },
    "source": "photo",
-   "notes": "tapped out; said in chat he'd be a little late but no Late on card",
+   "notes": "tapped out",
    "cards": [
     "cards/s5/2026-1115-1842-3.jpg"
    ]
