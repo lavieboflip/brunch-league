@@ -2,7 +2,7 @@
  "season": 5,
  "currentWeek": 10,
  "weeks": 11,
- "updated": "2026-11-15T18:47",
+ "updated": "2026-11-16T22:48",
  "brunches": {
   "1": {
    "date": "2026-09-13",
@@ -1081,6 +1081,31 @@
   },
   {
    "week": 9,
+   "player": "david-k",
+   "counts": {
+    "attended": true,
+    "rsvpOnTime": true,
+    "organized": false,
+    "late": false,
+    "holyGrail": false,
+    "kickedOut": false,
+    "referrals": 0,
+    "drinks": 17,
+    "shots": 10,
+    "shotsBought": 0,
+    "dishes": 4,
+    "sharkWeeks": 1,
+    "bars": 0,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "tapped out; drink tally messy, about 17",
+   "cards": [
+    "cards/s5/2026-1116-2240-0.jpg"
+   ]
+  },
+  {
+   "week": 9,
    "player": "hunter-h",
    "counts": {
     "attended": true,
@@ -1156,6 +1181,56 @@
   },
   {
    "week": 9,
+   "player": "miranda-b",
+   "counts": {
+    "attended": true,
+    "rsvpOnTime": true,
+    "organized": true,
+    "late": false,
+    "holyGrail": false,
+    "kickedOut": false,
+    "referrals": 0,
+    "drinks": 7,
+    "shots": 0,
+    "shotsBought": 0,
+    "dishes": 3,
+    "sharkWeeks": 0,
+    "bars": 0,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "dishes listed: pizza, wings, sando; tapped out",
+   "cards": [
+    "cards/s5/2026-1116-2240-0.jpg"
+   ]
+  },
+  {
+   "week": 9,
+   "player": "sam-h",
+   "counts": {
+    "attended": true,
+    "rsvpOnTime": true,
+    "organized": false,
+    "late": false,
+    "holyGrail": false,
+    "kickedOut": false,
+    "referrals": 0,
+    "drinks": 6,
+    "shots": 7,
+    "shotsBought": 0,
+    "dishes": 1,
+    "sharkWeeks": 1,
+    "bars": 0,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "tapped out",
+   "cards": [
+    "cards/s5/2026-1116-2240-0.jpg"
+   ]
+  },
+  {
+   "week": 9,
    "player": "sarah",
    "counts": {
     "attended": true,
@@ -1177,6 +1252,31 @@
    "notes": "dishes tally unclear, 4 or 5; tapped out (8:40pm written)",
    "cards": [
     "cards/s5/2026-1108-2035-0.jpg"
+   ]
+  },
+  {
+   "week": 9,
+   "player": "whitney-t",
+   "counts": {
+    "attended": true,
+    "rsvpOnTime": true,
+    "organized": false,
+    "late": false,
+    "holyGrail": false,
+    "kickedOut": false,
+    "referrals": 0,
+    "drinks": 14,
+    "shots": 8,
+    "shotsBought": 0,
+    "dishes": 3,
+    "sharkWeeks": 0,
+    "bars": 1,
+    "yellowCards": 0
+   },
+   "source": "photo",
+   "notes": "",
+   "cards": [
+    "cards/s5/2026-1116-2240-0.jpg"
    ]
   },
   {
